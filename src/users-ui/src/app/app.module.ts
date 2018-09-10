@@ -6,6 +6,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { SistemaComponent } from './sistema/sistema.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-princi
     LoaderComponent,
     FooterComponent,
     HeaderComponent,
-    PantallaPrincipalComponent
+    PantallaPrincipalComponent,
+    SistemaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
