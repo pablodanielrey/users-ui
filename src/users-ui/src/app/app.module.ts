@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SistemaComponent } from './sistema/sistema.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SistemaComponent } from './sistema/sistema.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
