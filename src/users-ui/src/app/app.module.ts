@@ -1,6 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { TokenInterceptor } from './auth.service';
+import { OidpGuard } from './oidp.guard';
+
 import { AppComponent } from './app.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,9 +28,14 @@ import { MyMaterialModule } from './material.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MyMaterialModule
+    HttpClientModule,
+    MyMaterialModule,
+    OAuthModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    OidpGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

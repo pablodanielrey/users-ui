@@ -1,3 +1,50 @@
-<p>
-  loader works!
-</p>
+
+<div class="loader">
+    <div class="header">
+        <div>{{loaderHeader}}</div>
+    </div>
+    <div class="contenedorSistema">
+      <div class="contenedorAcceso">
+          <div>
+              <div class="contenedorTitulo">
+                  <div><img class="logoSistema" src="/assets/img/logoApp.png"></div>
+                  <div class="titulo"> {{loaderTitle}}</div>
+              </div>
+              <div class="subTitulo">{{loaderSubTitle}} </div>
+              <div> <button class="btnAcceder" (click)="acceder()"> ACCEDER  </button> </div>
+          </div>
+
+          <div>
+            <img class="logoFce" src={{loaderLogo}}>
+          </div>
+      </div>
+        <div class="infoSistema">
+            <div class="bloqueInfo">
+              <div><mat-icon class="iconos">person_outline</mat-icon></div>
+              <div class="tituloInfo">{{loaderInfo1Title}}</div>
+              <div class="infoBloque">{{loaderInfo1Text}}</div>
+            </div>
+            <div class="bloqueInfo">
+              <div><mat-icon class="iconos">apps</mat-icon></div>
+              <div class="tituloInfo">{{loaderInfo2Title}}</div>
+              <p class="infoBloque">{{loaderInfo2Text}}</p>
+            </div>
+            <div class="bloqueInfo">
+              <div><mat-icon class="iconos">list</mat-icon></div>
+              <div class="tituloInfo">{{loaderInfo3Title}}</div>
+              <div class="infoBloque">{{loaderInfo3Text}}</div>
+            </div>
+            <div class="bloqueInfo">
+              <!-- <div><mat-icon class="iconos">art_track</mat-icon></div>
+              <div class="tituloInfo">Datos Personales</div> -->
+              <img class="logoDitesi" src={{loaderInfo4Title}}>
+              <div class="infoBloque">{{loaderInfo4Text}}</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+      <div class="footerPrincipal">{{loaderFooter1}}</div>
+      <div class="footerAlternativo">{{loaderFooter2}}</div>
+    </div>
+</div>
