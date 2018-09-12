@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 export const authConfig: AuthConfig = {
   issuer: environment.oidp_issuer,
   redirectUri: window.location.origin,
+  logoutUrl:environment.logoutUrl,
   clientId: 'users-ui',
   scope: 'openid profile email',
   showDebugInformation: true
