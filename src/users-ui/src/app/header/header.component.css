@@ -6,7 +6,7 @@
   -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   color: white;
-  background-color: #3B4248;
+  background-color: #222222;
 }
 
 .btnFullScreen {
@@ -15,4 +15,10 @@
 
 .nombreUsuario {
   margin-left: 5px;
+}
+
+
+.imgLogoHeader {
+  width: 25px;
+  margin-right: 10px;
 }

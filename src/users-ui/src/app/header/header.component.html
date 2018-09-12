@@ -1,17 +1,20 @@
 <mat-toolbar class="cabecera">
-    <div><span>FCE</span></div>
+    <div>
+      <img class="imgLogoHeader" src="/assets/img/logo_usuarios.png">
+      <span>Usuarios</span>
+    </div>
     <div>
         <button class="btnFullScreen" mat-icon-button appToogleFullscreen>
             <mat-icon>aspect_ratio</mat-icon>
         </button>
           <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>account_circle</mat-icon>
-          <span *ngIf='info'>{{info.name}}</span>
+          <span *ngIf='info'> {{info.name}}</span>
           <mat-icon>arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
           <!-- <button mat-menu-item><mat-icon>portrait</mat-icon> Mi Perfil</button> -->
-          <!-- <button mat-menu-item><mat-icon>lock_outline</mat-icon> Cambiar Clave</button> -->
+          <button mat-menu-item><mat-icon>lock_outline</mat-icon> Cambiar Clave</button>
           <button mat-menu-item (click)='salir()'><mat-icon>exit_to_app</mat-icon> Salir</button>
         </mat-menu>
     </div>
