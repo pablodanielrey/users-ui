@@ -20,6 +20,11 @@
   /* background-color: blue; */
 }
 
-.pantalla {
+/* .pantalla {
   height: 100%;
+} */
+
+.pantalla {
+  height: calc(100% - 84px);
+  /* background-color: red; */
 }
