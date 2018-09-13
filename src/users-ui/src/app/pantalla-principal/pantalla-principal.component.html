@@ -13,7 +13,7 @@
 
 
             </div>
-            <div class="contenedorRoles">
+            <!-- <div class="contenedorRoles">
               <p>Roles</p>
               <mat-divider></mat-divider>
               <div class="roles">
@@ -23,9 +23,19 @@
                       <mat-chip>Alumno</mat-chip>
                   </mat-chip-list>
               </div>
-            </div>
+            </div> -->
 
-            <button mat-raised-button class="btnCambiarImagen">Cambiar Contraseña</button>
+            <div class="contenedorAcciones">
+                <button mat-stroked-button class="btnCambiarContrasena">Cambiar Contraseña</button>
+                <button mat-button class="btnGuardar">GUARDAR CAMBIOS</button>
+                <div class="contenedorMasAcciones">
+                    <a class="link" routerLink=".">Acerca de</a><br>
+                    <a class="link" routerLink=".">Términos y condiciones</a><br>
+                    <a class="link" routerLink=".">¿Necesitas ayuda?</a>
+                </div>
+
+
+            </div>
 
         </div>
         <div class="datosPerfil">
@@ -61,8 +71,7 @@
                                      </button>
                                   </mat-form-field>
 
-                                  <button mat-raised-button class="btnAgregarCorreo">Agregar correo</button>
-
+                                  <button mat-stroked-button class="btnAgregarCorreo">Agregar correo</button>
 
 
                               </form>
