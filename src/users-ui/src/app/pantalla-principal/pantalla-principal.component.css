@@ -3,17 +3,22 @@
 }
 
 .cabeceraPantalla {
-  background-color: #4186e1;
+  /* background-color: #4186e1; */
   height: 100px;
   display: flex;
   align-items:flex-end;
+  background: #4186e1; /* Old browsers */
+background: -moz-linear-gradient(top, #4186e1 0%, #4da4d9 99%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #4186e1 0%,#4da4d9 99%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #4186e1 0%,#4da4d9 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4186e1', endColorstr='#4da4d9',GradientType=0 ); /* IE6-9 */
 }
 
 .nombre {
   color: white;
   padding-bottom: 5px;
   margin-left: 190px;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: lighter;
 
 }
@@ -28,6 +33,13 @@
   width: 25%;
   border-right: 1px solid #dddddd;
   margin-right: 20px;
+
+}
+
+.contenedorImgPerfil {
+    display: flex;
+    align-items: center;
+
 }
 
 
@@ -41,6 +53,26 @@
    border-color: white;
 }
 
+.btnCambiarImagen {
+  background-color: #DFDFDF;
+  color: #515151;
+  margin: -15px 0 0 10px;
+}
+
+.btnBuscarImagen {
+  background-color: #4186e1;
+  margin: 40px 0 0 -50px ;
+}
+
+.contenedorRoles {
+  padding: 20px 40px 20px 40px;
+  color: grey;
+}
+
+.roles {
+  margin-top: 10px;
+}
+
 
 .tabPerfil {
   padding: 20px;
@@ -51,12 +83,17 @@
   flex-direction: row;
 }
 
-.example-form {
+.formulario {
   min-width: 150px;
   max-width: 500px;
+  width: 95%;
+}
+
+.itemForm {
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
+.btnAgregarCorreo {
+  background-color: #4186e1;
+  color: white
 }

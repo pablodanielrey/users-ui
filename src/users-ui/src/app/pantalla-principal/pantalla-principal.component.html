@@ -1,44 +1,70 @@
 <div class="usuarios">
 
     <div class=cabeceraPantalla>
-      <div class="nombre">Walter Blanco</div>
+      <div class="nombre">Walter Roberto Blanco</div>
     </div>
 
     <div class="contenidoPantalla">
         <div class="perfil">
             <div class="contenedorImgPerfil">
                 <img class="imgPerfil" src="/assets/img/walter.jpg">
+                <!-- <button mat-button class="btnCambiarImagen">Cambiar Imágen</button> -->
+                <button mat-mini-fab class="btnBuscarImagen" matTooltip="Cambiar Imágen"><mat-icon >add_a_photo</mat-icon></button>
+
+
             </div>
+            <div class="contenedorRoles">
+              <p>Roles</p>
+              <mat-divider></mat-divider>
+              <div class="roles">
+                  <mat-chip-list>
+                      <mat-chip>NoDocente</mat-chip>
+                      <mat-chip>Docente</mat-chip>
+                      <mat-chip>Alumno</mat-chip>
+                  </mat-chip-list>
+              </div>
+            </div>
+
+            <button mat-raised-button class="btnCambiarImagen">Cambiar Contraseña</button>
+
         </div>
         <div class="datosPerfil">
             <mat-tab-group>
                 <mat-tab label="PERFIL">
                     <div class="bloquePerfil">
                           <div class="subBloque">
-                              <form class="example-form tabPerfil">
-                                  <mat-form-field class="example-full-width">
+                              <form class="formulario tabPerfil">
+                                  <mat-form-field class="itemForm">
                                     <input matInput placeholder="Nombre y Apellido" value="Walter Blanco">
                                   </mat-form-field>
-                                  <mat-form-field class="example-full-width">
+                                  <mat-form-field class="itemForm">
                                     <input matInput placeholder="DNI" value="30001823">
                                   </mat-form-field>
-                                  <mat-form-field class="example-full-width">
+                                  <mat-form-field class="itemForm">
                                     <input matInput placeholder="Legajo" value="45987/6">
                                   </mat-form-field>
-                                  <mat-form-field class="example-full-width">
+                                  <mat-form-field class="itemForm">
                                     <input matInput placeholder="Sexo" value="Masculino">
                                   </mat-form-field>
 
                               </form>
                           </div>
                           <div class="subBloque">
-                              <form class="example-form tabPerfil">
-                                  <mat-form-field class="example-full-width">
+                              <form class="formulario tabPerfil">
+                                  <mat-form-field class="itemForm">
                                     <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar">
                                   </mat-form-field>
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com">
+                                  <mat-form-field class="itemForm">
+                                     <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com">
+                                     <button matSuffix mat-icon-button matTooltip="Eliminar Correo">
+                                       <mat-icon>delete_outline</mat-icon>
+                                     </button>
                                   </mat-form-field>
+
+                                  <button mat-raised-button class="btnAgregarCorreo">Agregar correo</button>
+
+
+
                               </form>
                           </div>
                     </div>
@@ -46,27 +72,27 @@
                 <mat-tab label="AVANZADO">
                   <div class="bloquePerfil">
                         <div class="subBloque">
-                            <form class="example-form tabPerfil">
-                                <mat-form-field class="example-full-width">
+                            <form class="formulario tabPerfil">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Nacionalidad" value="Argentino">
                                 </mat-form-field>
-                                <mat-form-field class="example-full-width">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Localidad" value="La Plata">
                                 </mat-form-field>
-                                <mat-form-field class="example-full-width">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Dirección" value="Calle 48 Nº 681 - 2B">
                                 </mat-form-field>
-                                <mat-form-field class="example-full-width">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Teléfono" value="2215032505">
                                 </mat-form-field>
                             </form>
                         </div>
                         <div class="subBloque">
-                            <form class="example-form tabPerfil">
-                                <mat-form-field class="example-full-width">
+                            <form class="formulario tabPerfil">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Otro Dato" value="Otro dato">
                                 </mat-form-field>
-                                <mat-form-field class="example-full-width">
+                                <mat-form-field class="itemForm">
                                   <input matInput placeholder="Otro Dato" value="otro dato">
                                 </mat-form-field>
                             </form>
