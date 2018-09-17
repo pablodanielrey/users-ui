@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
+
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
@@ -15,6 +18,7 @@ import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-princi
 import { AppRoutingModule } from './/app-routing.module';
 import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
+import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { MyMaterialModule } from './material.module';
     FooterComponent,
     HeaderComponent,
     PantallaPrincipalComponent,
-    SistemaComponent
+    SistemaComponent,
+    ImageCropperComponent,
+    DialogoModificarFotoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,7 @@ import { MyMaterialModule } from './material.module';
     MyMaterialModule,
     OAuthModule.forRoot()
   ],
+  entryComponents: [DialogoModificarFotoComponent],
   providers: [
     OidpGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
