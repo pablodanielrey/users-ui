@@ -1,5 +1,11 @@
-.ng2-imgcrop {
-  display: flex !important;
+.contenedorFoto {
+  max-width: 630px;
+}
+
+.btnAceptar {
+  background-color: #4186e1;
+  color: white;
+  margin-left: 20px;
 }
 
 h3 {

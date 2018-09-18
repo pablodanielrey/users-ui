@@ -24,7 +24,7 @@ export class DialogoModificarFotoComponent  implements OnInit {
     this.cropperSettings1.croppedWidth = 200;
     this.cropperSettings1.croppedHeight = 200;
 
-    this.cropperSettings1.canvasWidth = 500;
+    this.cropperSettings1.canvasWidth = 550;
     this.cropperSettings1.canvasHeight = 300;
 
     this.cropperSettings1.minWidth = 100;
