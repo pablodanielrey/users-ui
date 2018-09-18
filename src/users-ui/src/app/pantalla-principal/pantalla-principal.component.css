@@ -130,3 +130,51 @@ a {
   /* background-color: #4186e1; */
   color: #4186e1;
 }
+
+.datosPerfil {
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .contenidoPantalla {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .perfil {
+    width: 100%;
+  }
+  .bloquePerfil {
+    display: flex;
+    flex-direction: column;
+  }
+  .cabeceraPantalla {
+    /* background-color: #4186e1; */
+    height: 70px;
+    display: flex;
+    align-items:flex-end;
+  }
+
+  .nombre {
+    font-size: 18px;
+    margin-left: 135px;
+
+  }
+  .imgPerfil {
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: 25px;
+
+  }
+  .btnBuscarImagen {
+    margin: 5px 0 0 -25px ;
+  }
+  .contenedorAcciones {
+    display: none;
+  }
+  .bloque2 {
+    margin-top: -40px;
+  }
+}

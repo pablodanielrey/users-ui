@@ -23,5 +23,8 @@
   .footerPrincipal {
     display: none;
   }
+  .footer {
+    display: none;
+  }
 
 }

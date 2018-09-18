@@ -28,3 +28,10 @@
   height: calc(100% - 84px);
   /* background-color: red; */
 }
+
+@media screen and (max-width: 768px) {
+  .pantalla {
+    height: calc(100% - 56px);
+    /* background-color: red; */
+  }
+}

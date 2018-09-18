@@ -32,6 +32,8 @@ export class DialogoModificarFotoComponent  implements OnInit {
 
     this.cropperSettings1.rounded = false;
 
+    this.cropperSettings1.noFileInput = false;
+
     this.cropperSettings1.cropperDrawSettings.strokeColor = 'rgba(255,255,255,1)';
     this.cropperSettings1.cropperDrawSettings.strokeWidth = 2;
 
