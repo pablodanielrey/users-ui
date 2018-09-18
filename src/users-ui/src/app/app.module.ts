@@ -7,8 +7,7 @@ import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { TokenInterceptor } from './auth.service';
-import { OidpGuard } from './oidp.guard';
+import { OidpGuard } from './oauth2/oidp.guard';
 
 import { AppComponent } from './app.component';
 import { LoaderComponent } from './loader/loader.component';
@@ -19,10 +18,12 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
 import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
+import { Oauth2Component } from './oauth2/oauth2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    Oauth2Component,
     LoaderComponent,
     FooterComponent,
     HeaderComponent,
@@ -36,12 +37,16 @@ import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-
     AppRoutingModule,
     HttpClientModule,
     MyMaterialModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot({
+      resourceServer: {
+        allowedUrls: ['http'],
+        sendAccessToken: true
+      }
+    })
   ],
   entryComponents: [DialogoModificarFotoComponent],
   providers: [
-    OidpGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    OidpGuard
   ],
   bootstrap: [AppComponent]
 })
