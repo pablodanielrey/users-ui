@@ -84,8 +84,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4186e1', end
 }
 
 .btnCambiarContrasena:hover {
-  background-color: #4186e1;
-  color: white;
+
 }
 
 .btnGuardar {

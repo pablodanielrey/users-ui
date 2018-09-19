@@ -49,13 +49,17 @@
                                     <input matInput placeholder="Nombre y Apellido" value="Walter Blanco">
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="DNI" value="30001823">
+                                    <input matInput placeholder="DNI" value="30001823" readonly="readonly">
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Legajo" value="45987/6">
+                                    <input matInput placeholder="Legajo" value="45987/6" readonly="readonly">
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Sexo" value="Masculino">
+                                      <mat-select placeholder="Sexo" value="Masculino">
+                                        <mat-option value="option">Femenino</mat-option>
+                                        <mat-option value="option">Masculino</mat-option>
+                                        <mat-option value="option">Otro</mat-option>
+                                      </mat-select>
                                   </mat-form-field>
 
                               </form>
@@ -63,10 +67,10 @@
                           <div class="subBloque bloque2">
                               <form class="formulario tabPerfil">
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar">
+                                    <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar" readonly="readonly">
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                     <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com">
+                                     <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com" readonly="readonly">
                                      <button matSuffix mat-icon-button matTooltip="Eliminar Correo">
                                        <mat-icon>delete_outline</mat-icon>
                                      </button>
