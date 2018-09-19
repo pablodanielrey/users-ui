@@ -19,7 +19,7 @@ import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
 import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
 import { Oauth2Component } from './oauth2/oauth2.component';
-//import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { AgregarcorreoComponent } from './sistema/agregarcorreo/agregarcorreo.component';
 import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.component';
@@ -42,7 +42,7 @@ import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    //ReactiveFormsModule,
+    ReactiveFormsModule,
     MyMaterialModule,
     OAuthModule.forRoot({
       resourceServer: {

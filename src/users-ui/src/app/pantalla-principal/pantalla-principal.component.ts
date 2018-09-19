@@ -5,7 +5,7 @@ import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
 import { Usuario } from '../entities/usuario'
 
-//import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'; 
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'; 
 
 @Component({
   selector: 'app-pantalla-principal',
@@ -16,27 +16,52 @@ export class PantallaPrincipalComponent implements OnInit {
 
   info: any;
   foto: any;
-  //formulario: FormGroup;
-  usuario: Usuario = null;
+  formulario: FormGroup;
+  nombre = new FormControl('', Validators.required);
+  apellido = new FormControl('', Validators.required);
+  dni = new FormControl('');
+  legajo = new FormControl('');
+  sexo = new FormControl('', Validators.required);
+
+  opciones_sexo: string[] = ["Otro","masculino", "femenino"];
+
+  usuario: Usuario = null;  
   subscriptions: any[] = [];
   cambiarFotoDialogRef: MatDialogRef<DialogoModificarFotoComponent>;
 
-  constructor(
-    public dialog: MatDialog,
-    private service: UsersService,
-    private oauthService: OAuthService) { }
+  constructor(public dialog: MatDialog,
+              private fb: FormBuilder, 
+              private service: UsersService,
+              private oauthService: OAuthService) { }
 
   ngOnInit() {
+    this.formulario = this.fb.group({
+      nombre: this.nombre,
+      apellido: this.apellido,
+      dni: this.dni,
+      legajo: this.legajo,
+      sexo: this.sexo
+    });
+    
+    this.dni.disable();
+    this.legajo.disable();
+
     this.info = this.oauthService.getIdentityClaims();
     let userId = this.info.sub;
     this.subscriptions.push(this.service.obtenerUsuario(userId).subscribe(
       usuario => {
+        console.log(usuario);
         this.usuario = usuario;
+        this.nombre.setValue(usuario.nombre);
+        this.apellido.setValue(usuario.apellido);
+        this.dni.setValue(usuario.dni); 
+        this.legajo.setValue(usuario.legajo);
+        this.sexo.setValue(usuario.genero);
       },
       err => {
         console.log(err)
       }
-    ));
+    ));/*
     this.subscriptions.push(this.service.obtenerAvatar(userId).subscribe(
       data => {
         console.log("Avatar:" + data);
@@ -53,6 +78,7 @@ export class PantallaPrincipalComponent implements OnInit {
         console.log(err);
       }
     ));
+    */
     console.log(this.info);
   }
 
@@ -68,6 +94,11 @@ export class PantallaPrincipalComponent implements OnInit {
         this.foto = result;
       }
     });
+  }
+
+  guardar(): void {
+    console.log("guardar");
+    console.warn(this.formulario.value);
   }
 
 }

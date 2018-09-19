@@ -7,6 +7,17 @@ export class Usuario {
     nombre: string = null;
     apellido: string;
     dni: string;
+    legajo: string; 
+    
+    avatar: string;
+    ciudad: string;
+    direccion: string;
+    genero: string;
+    mails: Array<Mail>;
+    nacimiento:null
+    pais:null
+    telefonos:Array<Telefono>;
+    tipo: any = null    
   
   
     constructor(o:Object) {
@@ -18,4 +29,18 @@ export class Usuario {
         console.log(e);
       }
     }    
+}
+
+
+export class Mail {
+  id: string = null;
+  mail: string;
+  creado: Date = null;
+  actualizado: Date = null; 
+}
+
+export class Telefono {
+  id: string = null;
+  nro: string;
+  tipo: string;
 }

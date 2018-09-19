@@ -28,7 +28,7 @@
 
             <div class="contenedorAcciones">
                 <button mat-stroked-button class="btnCambiarContrasena">Cambiar Contraseña</button>
-                <button mat-button class="btnGuardar">GUARDAR CAMBIOS</button>
+                <button mat-button class="btnGuardar" type="submit" [disabled]="!formulario.valid" form="formulario">GUARDAR CAMBIOS</button>
                 <div class="contenedorMasAcciones">
                     <a class="link" routerLink=".">Acerca de</a><br>
                     <a class="link" routerLink=".">Términos y condiciones</a><br>
@@ -44,27 +44,28 @@
                 <mat-tab label="PERFIL">
                     <div class="bloquePerfil">
                           <div class="subBloque">
-                              <form class="formulario tabPerfil">
+                              <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Nombre y Apellido" value="Walter Blanco">
+                                    <input matInput placeholder="Nombre" formControlName='nombre'>
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="DNI" value="30001823" readonly="readonly">
+                                    <input matInput placeholder="Apellido" formControlName='apellido'>
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Legajo" value="45987/6" readonly="readonly">
+                                    <input matInput placeholder="DNI" formControlName='dni' >
+                                  </mat-form-field>                                  
+                                  <mat-form-field class="itemForm">
+                                    <input matInput placeholder="Legajo" formControlName="legajo" readonly="readonly">
                                   </mat-form-field>
                                   <mat-form-field class="itemForm">
-                                      <mat-select placeholder="Sexo" value="Masculino">
-                                        <mat-option value="option">Femenino</mat-option>
-                                        <mat-option value="option">Masculino</mat-option>
-                                        <mat-option value="option">Otro</mat-option>
+                                      <mat-select placeholder="Sexo" formControlName="sexo">
+                                            <mat-option *ngFor="let sexo of opciones_sexo" [value]="sexo">{{ sexo | uppercase }}</mat-option>
                                       </mat-select>
                                   </mat-form-field>
-
-                              </form>
+                                </form>
                           </div>
                           <div class="subBloque bloque2">
+                              <!--
                               <form class="formulario tabPerfil">
                                   <mat-form-field class="itemForm">
                                     <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar" readonly="readonly">
@@ -80,11 +81,13 @@
 
 
                               </form>
+                              -->
                           </div>
                     </div>
                 </mat-tab>
                 <mat-tab label="AVANZADO">
                   <div class="bloquePerfil">
+                      <!--
                         <div class="subBloque">
                             <form class="formulario tabPerfil">
                                 <mat-form-field class="itemForm">
@@ -111,6 +114,7 @@
                                 </mat-form-field>
                             </form>
                         </div>
+                        -->
                   </div>
                 </mat-tab>
             </mat-tab-group>

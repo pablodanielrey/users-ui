@@ -22,9 +22,9 @@ const routes: Routes = [
       { 
         path: 'agregar_correo', 
         component: AgregarcorreoComponent,
-        children: [
+        /*children: [
           { path: 'paso1' }
-        ]
+        ]*/
       },
       { path: 'cambiar_clave', component: CambiarclaveComponent },
     ]
