@@ -21,6 +21,8 @@ import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-
 import { Oauth2Component } from './oauth2/oauth2.component';
 //import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
+import { AgregarcorreoComponent } from './sistema/agregarcorreo/agregarcorreo.component';
+import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { UsersService } from './users.service';
     PantallaPrincipalComponent,
     SistemaComponent,
     ImageCropperComponent,
-    DialogoModificarFotoComponent
+    DialogoModificarFotoComponent,
+    AgregarcorreoComponent,
+    CambiarclaveComponent
   ],
   imports: [
     BrowserModule,
