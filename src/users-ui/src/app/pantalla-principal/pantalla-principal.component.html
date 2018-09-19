@@ -1,7 +1,7 @@
 <div class="usuarios">
 
     <div class=cabeceraPantalla>
-      <div class="nombre">Walter Roberto Blanco</div>
+      <div class="nombre" *ngIf="usuario">{{ usuario.nombre }} {{ usuario.apellido }}</div>
     </div>
 
     <div class="contenidoPantalla">

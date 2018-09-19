@@ -19,6 +19,8 @@ import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
 import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
 import { Oauth2Component } from './oauth2/oauth2.component';
+//import { ReactiveFormsModule } from '@angular/forms';
+import { UsersService } from './users.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { Oauth2Component } from './oauth2/oauth2.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    //ReactiveFormsModule,
     MyMaterialModule,
     OAuthModule.forRoot({
       resourceServer: {
@@ -46,6 +49,7 @@ import { Oauth2Component } from './oauth2/oauth2.component';
   ],
   entryComponents: [DialogoModificarFotoComponent],
   providers: [
+    UsersService,
     OidpGuard
   ],
   bootstrap: [AppComponent]
