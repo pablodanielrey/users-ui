@@ -30,8 +30,8 @@ const routes: Routes = [
     canActivate: [OidpGuard],
     children: [
       { path: 'inicial', component: PantallaPrincipalComponent },
-      { 
-        path: 'agregar_correo', 
+      {
+        path: 'agregar_correo',
         component: AgregarcorreoComponent,
         children: [
           { path: 'ingresar_correo', component: IngresarCorreoComponent },
@@ -39,7 +39,7 @@ const routes: Routes = [
           { path: 'correo_confirmado', component: CorreoConfirmadoComponent }
         ]
       },
-      { 
+      {
         path: 'cambiar_clave',
         component: CambiarclaveComponent,
         children: [
