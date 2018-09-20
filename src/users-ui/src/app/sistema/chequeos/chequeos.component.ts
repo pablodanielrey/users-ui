@@ -11,7 +11,7 @@ export class ChequeosComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    //this.router.navigate(['./sin_correo']);
+    //this.router.navigate(['/sistema/chequeos/sin_correo']);
   }
   
 
