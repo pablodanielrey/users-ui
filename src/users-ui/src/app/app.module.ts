@@ -23,6 +23,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
 import { AgregarcorreoComponent } from './sistema/agregarcorreo/agregarcorreo.component';
 import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.component';
+import { ChequeosComponent } from './sistema/chequeos/chequeos.component';
+import { ClaveTemporalComponent } from './sistema/chequeos/clave-temporal/clave-temporal.component';
+import { SinCorreoComponent } from './sistema/chequeos/sin-correo/sin-correo.component';
+import { IngresarCorreoComponent } from './sistema/agregarcorreo/ingresar-correo/ingresar-correo.component';
+import { IngresarCodigoComponent } from './sistema/agregarcorreo/ingresar-codigo/ingresar-codigo.component';
+import { CorreoConfirmadoComponent } from './sistema/agregarcorreo/correo-confirmado/correo-confirmado.component';
+import { IngresarClaveComponent } from './sistema/cambiarclave/ingresar-clave/ingresar-clave.component';
+import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificada/clave-modificada.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,15 @@ import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.compo
     ImageCropperComponent,
     DialogoModificarFotoComponent,
     AgregarcorreoComponent,
-    CambiarclaveComponent
+    CambiarclaveComponent,
+    ChequeosComponent,
+    ClaveTemporalComponent,
+    SinCorreoComponent,
+    IngresarCorreoComponent,
+    IngresarCodigoComponent,
+    CorreoConfirmadoComponent,
+    IngresarClaveComponent,
+    ClaveModificadaComponent
   ],
   imports: [
     BrowserModule,

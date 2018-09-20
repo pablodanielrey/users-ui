@@ -23,6 +23,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4186e1', end
 
 }
 
+.contenidoPantalla .mat-input-element:disabled {
+  color: black;
+}
+
 .contenidoPantalla {
   width: 100%;
   display: flex;

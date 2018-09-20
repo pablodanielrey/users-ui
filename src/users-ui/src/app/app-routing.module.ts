@@ -7,8 +7,19 @@ import { SistemaComponent } from './sistema/sistema.component';
 import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-principal.component';
 
 import { LoaderComponent } from './loader/loader.component';
+
 import { AgregarcorreoComponent } from './sistema/agregarcorreo/agregarcorreo.component';
+import { IngresarCorreoComponent } from './sistema/agregarcorreo/ingresar-correo/ingresar-correo.component';
+import { IngresarCodigoComponent } from './sistema/agregarcorreo/ingresar-codigo/ingresar-codigo.component';
+import { CorreoConfirmadoComponent } from './sistema/agregarcorreo/correo-confirmado/correo-confirmado.component';
+
 import { CambiarclaveComponent } from './sistema/cambiarclave/cambiarclave.component';
+import { IngresarClaveComponent } from './sistema/cambiarclave/ingresar-clave/ingresar-clave.component';
+import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificada/clave-modificada.component';
+
+import { ChequeosComponent } from './sistema/chequeos/chequeos.component';
+import { ClaveTemporalComponent } from './sistema/chequeos/clave-temporal/clave-temporal.component';
+import { SinCorreoComponent } from './sistema/chequeos/sin-correo/sin-correo.component';
 
 const routes: Routes = [
   { path: 'oauth2', component: Oauth2Component },
@@ -22,11 +33,28 @@ const routes: Routes = [
       { 
         path: 'agregar_correo', 
         component: AgregarcorreoComponent,
-        /*children: [
-          { path: 'paso1' }
-        ]*/
+        children: [
+          { path: 'ingresar_correo', component: IngresarCorreoComponent },
+          { path: 'ingresar_codigo', component: IngresarCodigoComponent },
+          { path: 'correo_confirmado', component: CorreoConfirmadoComponent }
+        ]
       },
-      { path: 'cambiar_clave', component: CambiarclaveComponent },
+      { 
+        path: 'cambiar_clave',
+        component: CambiarclaveComponent,
+        children: [
+          { path: 'ingresar_clave', component: IngresarClaveComponent},
+          { path: 'clave_modificada', component: ClaveModificadaComponent }
+        ]
+      },
+      {
+        path: 'chequeos',
+        component: ChequeosComponent,
+        children: [
+          { path: 'sin_correo', component: SinCorreoComponent },
+          { path: 'clave_temporal', component: ClaveTemporalComponent }
+        ]
+      }
     ]
   },
   { path: '**', redirectTo: '/sistema/inicial', pathMatch: 'full' }
