@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingresar-codigo',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngresarCodigoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  aceptar() {
+    this.router.navigate(['/sistema/agregar_correo/correo_confirmado']);
   }
 
 }
