@@ -5,7 +5,7 @@ import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
 import { Usuario } from '../entities/usuario'
 
-import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'; 
+import { FormBuilder, FormControl, Validators, FormGroup, FormArray } from '@angular/forms'; 
 
 @Component({
   selector: 'app-pantalla-principal',
@@ -22,6 +22,8 @@ export class PantallaPrincipalComponent implements OnInit {
   dni = new FormControl('');
   legajo = new FormControl('');
   sexo = new FormControl('', Validators.required);
+  correos: FormArray;
+
 
   opciones_sexo: string[] = ["Otro","masculino", "femenino"];
 
@@ -40,7 +42,8 @@ export class PantallaPrincipalComponent implements OnInit {
       apellido: this.apellido,
       dni: this.dni,
       legajo: this.legajo,
-      sexo: this.sexo
+      sexo: this.sexo,
+      correos: this.correos
     });
     
     this.dni.disable();
@@ -57,6 +60,9 @@ export class PantallaPrincipalComponent implements OnInit {
         this.dni.setValue(usuario.dni); 
         this.legajo.setValue(usuario.legajo);
         this.sexo.setValue(usuario.genero);
+        this.correos.setValue(['emanuel@econo.unlp.edu.ar']);
+
+        console.log(this.correos.value)
       },
       err => {
         console.log(err)

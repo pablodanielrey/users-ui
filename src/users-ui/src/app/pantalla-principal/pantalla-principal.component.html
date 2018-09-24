@@ -42,48 +42,47 @@
         <div class="datosPerfil">
             <mat-tab-group>
                 <mat-tab label="PERFIL">
+                    <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
                     <div class="bloquePerfil">
-                          <div class="subBloque">
-                              <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
-                                  <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Nombre" formControlName='nombre'>
-                                  </mat-form-field>
-                                  <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Apellido" formControlName='apellido'>
-                                  </mat-form-field>
-                                  <mat-form-field class="itemForm">
-                                    <input matInput placeholder="DNI" formControlName='dni' >
-                                  </mat-form-field>                                  
-                                  <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Legajo" formControlName="legajo" readonly="readonly">
-                                  </mat-form-field>
-                                  <mat-form-field class="itemForm">
-                                      <mat-select placeholder="Sexo" formControlName="sexo">
-                                            <mat-option *ngFor="let sexo of opciones_sexo" [value]="sexo">{{ sexo | uppercase }}</mat-option>
-                                      </mat-select>
-                                  </mat-form-field>
-                                </form>
+                          <div class="subBloque">                              
+                                <mat-form-field class="itemForm">
+                                <input matInput placeholder="Nombre" formControlName='nombre'>
+                                </mat-form-field>
+                                <mat-form-field class="itemForm">
+                                <input matInput placeholder="Apellido" formControlName='apellido'>
+                                </mat-form-field>
+                                <mat-form-field class="itemForm">
+                                <input matInput placeholder="DNI" formControlName='dni' >
+                                </mat-form-field>                                  
+                                <mat-form-field class="itemForm">
+                                <input matInput placeholder="Legajo" formControlName="legajo" readonly="readonly">
+                                </mat-form-field>
+                                <mat-form-field class="itemForm">
+                                    <mat-select placeholder="Sexo" formControlName="sexo">
+                                        <mat-option *ngFor="let sexo of opciones_sexo" [value]="sexo">{{ sexo | uppercase }}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
                           </div>
                           <div class="subBloque bloque2">
+                                <mat-form-field class="itemForm" formArrayName="correos" *ngFor="let item of formulario.controls.correos.controls; let i = index;">
+                                        <input matInput placeholder="Correo electrónico" formControlName="formulario.controls.correos.controls[i]">
+                                </mat-form-field>
                               <!--
-                              <form class="formulario tabPerfil">
-                                  <mat-form-field class="itemForm">
+                                <mat-form-field class="itemForm">
                                     <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar" readonly="readonly">
-                                  </mat-form-field>
-                                  <mat-form-field class="itemForm">
-                                     <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com" readonly="readonly">
-                                     <button matSuffix mat-icon-button matTooltip="Eliminar Correo">
-                                       <mat-icon>delete_outline</mat-icon>
-                                     </button>
-                                  </mat-form-field>
+                                </mat-form-field>
+                                <mat-form-field class="itemForm">
+                                    <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com" readonly="readonly">
+                                    <button matSuffix mat-icon-button matTooltip="Eliminar Correo">
+                                    <mat-icon>delete_outline</mat-icon>
+                                    </button>
+                                </mat-form-field>
+                                -->
+                                <button mat-stroked-button class="btnAgregarCorreo">Agregar correo</button>
 
-                                  <button mat-stroked-button class="btnAgregarCorreo">Agregar correo</button>
-
-
-                              </form>
-                              -->
                           </div>
                     </div>
+                    </form>
                 </mat-tab>
                 <mat-tab label="AVANZADO">
                   <div class="bloquePerfil">
