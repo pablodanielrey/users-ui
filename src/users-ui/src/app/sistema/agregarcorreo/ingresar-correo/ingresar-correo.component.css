@@ -1,0 +1,33 @@
+.cabecera {
+  padding: 10px 0 10px 20px;
+}
+
+.btnVolver {
+  background-color: rgba(0,0,0,.12);
+}
+
+.contendido {
+  padding: 20px;
+  margin: 0 auto;
+  width: 30%;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.btnGuardar {
+  background-color: #4186e1;
+  color: white;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .contendido {
+    width: 100%;
+  }
+}

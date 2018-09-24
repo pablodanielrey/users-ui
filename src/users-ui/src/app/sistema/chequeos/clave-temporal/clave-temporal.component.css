@@ -1,0 +1,27 @@
+.pantalla {
+
+}
+
+.cabecera {
+  padding: 13px 0 13px 0;
+  text-align: center;
+}
+
+.contendido {
+  margin: 0 auto;
+  width: 25%;
+  padding: 20px;
+  text-align: center;
+}
+
+.btnAceptar {
+  background-color: #4186e1;
+  color: white;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .contendido {
+    width: 100%;
+  }
+}

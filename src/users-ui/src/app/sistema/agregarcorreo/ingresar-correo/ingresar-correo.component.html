@@ -1,4 +1,25 @@
-<p>
-  ingresar-correo works!
-</p>
-<button (click)='aceptar()'>Aceptar</button>
+<div class="pantalla">
+
+    <div class="cabecera">
+      <button mat-button class="btnVolver"><mat-icon>keyboard_arrow_left</mat-icon> volver</button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="contendido">
+        <h3>CONFIGURAR CORREO ALTERNATIVO </h3>
+
+        <div class="formulario">
+          <mat-form-field>
+            <input matInput placeholder="Ingresa tu correo electrónico">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Repeti tu correo electrónico">
+          </mat-form-field>
+        </div>
+        <button mat-button (click)='aceptar()' Class="btnGuardar">CONTINUAR</button>
+
+    </div>
+
+
+</div>
