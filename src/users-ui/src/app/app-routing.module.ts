@@ -34,8 +34,8 @@ const routes: Routes = [
         path: 'agregar_correo',
         component: AgregarcorreoComponent,
         children: [
-          { path: 'ingresar_correo', component: IngresarCorreoComponent },
-          { path: 'ingresar_codigo', component: IngresarCodigoComponent },
+          { path: 'ingresar_correo/:uid', component: IngresarCorreoComponent },
+          { path: 'ingresar_codigo/:uid/:cid', component: IngresarCodigoComponent },
           { path: 'correo_confirmado', component: CorreoConfirmadoComponent }
         ]
       },

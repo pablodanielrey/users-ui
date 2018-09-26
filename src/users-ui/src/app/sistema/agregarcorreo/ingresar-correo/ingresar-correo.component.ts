@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 
+import { UsersService } from '../../../users.service';
 
 @Component({
   selector: 'app-ingresar-correo',
@@ -11,8 +12,14 @@ import { FormGroup, FormBuilder, Validators, ValidationErrors, AbstractControl }
 export class IngresarCorreoComponent implements OnInit {
 
   form: FormGroup;
+  usuario_id: string = null;
 
-  constructor(private fb: FormBuilder, private router: Router) { 
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private service: UsersService) { 
+
+    this.route.paramMap.subscribe(p => {
+      this.usuario_id = p.get('uid');
+    });
+
     this.form = fb.group({
       correo1: ['', [Validators.required, Validators.email]],
       correo2: ['', [Validators.required, Validators.email]]
@@ -40,7 +47,15 @@ export class IngresarCorreoComponent implements OnInit {
       console.log(this.form);
       return;
     }
-    this.router.navigate(['/sistema/agregar_correo/ingresar_codigo']);
+    this.service.agregarCorreo(this.usuario_id, this.form.value['correo1']).subscribe(
+      r => {
+        this.router.navigate(['/sistema/agregar_correo/ingresar_codigo', this.usuario_id, r.cid]);
+      },
+      e => {
+        this.form.setErrors({servidor:true});
+      }
+    );
+    
   }
 
 }
