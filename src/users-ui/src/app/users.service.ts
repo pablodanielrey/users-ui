@@ -69,8 +69,12 @@ export class UsersService {
     return this.http.post<any>(apiUrl, data);
   }
 
-  confirmarCorreo(uid: string, cid: string, codigo: string) {
-    return
+  confirmarCorreo(uid: string, cid: string, codigo: string):Observable<any> {
+    let apiUrl = `${USUARIO_API_URL}/usuarios/${uid}/correos/${cid}/confirmar`;
+    let data = {
+      'codigo': codigo
+    }
+    return this.http.post<any>(apiUrl, data);
   }
 
   eliminarCorreo(cid: string) {

@@ -11,14 +11,15 @@
 
         <p class="mensajePrincipal">Te hemos enviado un código de confirmación a <b>pablo****@gmail.com</b>, copia y pega el código.</p>
         <p class="mensajeSecundario">Recuerda revisar la bandeja de correo no deseado (Spam) es probable que los correos electrónicos que te enviamos se encuentren allí.</p>
-
-
-        <div class="formulario">
-          <mat-form-field>
-            <input matInput placeholder="Ingresa el código">
-          </mat-form-field>
-        </div>
-        <button mat-button (click)='aceptar()' Class="btnGuardar">CONTINUAR</button>
+        
+        <form [formGroup]='form' (ngSubmit)='verificar_codigo()'>
+          <div class="formulario">
+            <mat-form-field>
+              <input matInput placeholder="Ingresa el código" formControlName='codigo'>
+            </mat-form-field>
+          </div>
+          <button mat-button type='submit' Class="btnGuardar">CONTINUAR</button>
+        </form>
 
     </div>
 
