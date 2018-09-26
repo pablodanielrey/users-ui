@@ -25,6 +25,7 @@ export class IngresarCorreoComponent implements OnInit {
     */
   }
 
+  // validador global de todo el formulario.
   validar_correos(f:AbstractControl): null | ValidationErrors {
     console.log('validando correos');
     return f.value['correo1'] == f.value['correo2'] ? null : { correos: true }
