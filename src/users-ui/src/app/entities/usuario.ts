@@ -1,3 +1,9 @@
+
+export interface CambiarClaveData {
+  uid: string;
+  clave: string;
+}
+
 export interface PrecondicionesData {
   correo: boolean;
   clave: boolean;
