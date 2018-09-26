@@ -31,6 +31,7 @@ import { IngresarCodigoComponent } from './sistema/agregarcorreo/ingresar-codigo
 import { CorreoConfirmadoComponent } from './sistema/agregarcorreo/correo-confirmado/correo-confirmado.component';
 import { IngresarClaveComponent } from './sistema/cambiarclave/ingresar-clave/ingresar-clave.component';
 import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificada/clave-modificada.component';
+import { DisableCopyPasteDirective } from './directives/disable-copy-paste.directive';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificad
     IngresarCodigoComponent,
     CorreoConfirmadoComponent,
     IngresarClaveComponent,
-    ClaveModificadaComponent
+    ClaveModificadaComponent,
+    DisableCopyPasteDirective
   ],
   imports: [
     BrowserModule,

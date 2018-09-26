@@ -7,19 +7,23 @@
     <mat-divider></mat-divider>
 
     <div class="contendido">
-        <h3>CONFIGURAR CORREO ALTERNATIVO </h3>
+      <h3>CONFIGURAR CORREO ALTERNATIVO </h3>
 
+      <form [formGroup]='form' (ngSubmit)='aceptar()'>
         <div class="formulario">
           <mat-form-field>
-            <input matInput placeholder="Ingresa tu correo electrónico">
+            <input matInput placeholder="Ingresa tu correo electrónico" formControlName='correo1' disableCopyPaste>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Repeti tu correo electrónico">
+            <input matInput placeholder="Repeti tu correo electrónico" formControlName='correo2' disableCopyPaste>
           </mat-form-field>
+          <mat-error *ngIf='form.errors'>Los correos no son iguales</mat-error>
         </div>
-        <button mat-button (click)='aceptar()' Class="btnGuardar">CONTINUAR</button>
+        <button mat-button type='submit' Class="btnGuardar">CONTINUAR</button>
+      </form>
 
     </div>
+    
 
 
 </div>
