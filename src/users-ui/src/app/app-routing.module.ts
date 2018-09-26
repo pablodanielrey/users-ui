@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'cambiar_clave',
         component: CambiarclaveComponent,
         children: [
-          { path: 'ingresar_clave', component: IngresarClaveComponent},
+          { path: 'ingresar_clave/:uid', component: IngresarClaveComponent},
           { path: 'clave_modificada', component: ClaveModificadaComponent }
         ]
       },
