@@ -57,7 +57,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '**', redirectTo: '/sistema/inicial', pathMatch: 'full' }
+  { path: '**', redirectTo: '/sistema/chequeos', pathMatch: 'full' }
 ];
 
 @NgModule({

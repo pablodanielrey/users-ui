@@ -86,14 +86,14 @@ export class UsersService {
   }
 
 
-  precondiciones():Observable<PrecondicionesData> {
+  precondiciones(uid):Observable<PrecondicionesData> {
     /*
-      true => entonces tiene que redirigir al proceso para cargar el dato determinado
-      false => la precondicion esta correcta, por lo que no redirige.
+      false => entonces tiene que redirigir al proceso para cargar el dato determinado
+      true => la precondicion esta correcta, por lo que no redirige.
     */
     let r : PrecondicionesData = {
       correo: true,
-      clave: true
+      clave: false
     }
     return of(r);
   }
