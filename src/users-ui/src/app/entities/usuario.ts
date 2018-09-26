@@ -1,3 +1,9 @@
+export interface PrecondicionesData {
+  correo: boolean;
+  clave: boolean;
+}
+
+
 export class Usuario {
     
     id: string = null;

@@ -5,10 +5,10 @@ import { environment } from '../environments/environment'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Http } from '@angular/http'
 
-import { Observable } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import 'rxjs/Rx'
 
-import { Usuario } from './entities/usuario'
+import { Usuario, PrecondicionesData } from './entities/usuario'
 
 const USUARIO_API_URL = environment.usersApiUrl
 
@@ -61,8 +61,12 @@ export class UsersService {
     return this.http.get<string>(apiUrl);
   }
 
-  agregarCorreo(uid: string, correo: string) {
-    return
+  agregarCorreo(uid: string, correo: string): Observable<any>  {
+    let apiUrl = `${USUARIO_API_URL}/usuarios/${uid}/correos/`;
+    let data = {
+      'email':correo
+    }
+    return this.http.post<any>(apiUrl, data);
   }
 
   confirmarCorreo(uid: string, cid: string, codigo: string) {
@@ -77,5 +81,17 @@ export class UsersService {
     return
   }
 
+
+  precondiciones():Observable<PrecondicionesData> {
+    /*
+      true => entonces tiene que redirigir al proceso para cargar el dato determinado
+      false => la precondicion esta correcta, por lo que no redirige.
+    */
+    let r : PrecondicionesData = {
+      correo: true,
+      clave: true
+    }
+    return of(r);
+  }
 
 }
