@@ -11,6 +11,7 @@ import { LoginService } from '../../../login.service';
 })
 export class IngresarClaveComponent implements OnInit {
 
+  hide: boolean = true;
   usuario_id : string = null;
   form: FormGroup;
 
@@ -20,6 +21,7 @@ export class IngresarClaveComponent implements OnInit {
       clave2: ['',[Validators.required]]
     }, {validator:this.validar_claves});
   }
+  
 
   ngOnInit() {
     this.route.paramMap.subscribe( p => {
