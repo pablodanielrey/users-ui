@@ -24,7 +24,11 @@ export class PantallaPrincipalComponent implements OnInit {
   legajo = new FormControl({value:'', disabled: true});
   sexo = new FormControl('', Validators.required);
   correos: FormArray = new FormArray([]);
-
+  pais = new FormControl('');
+  ciudad = new FormControl('');
+  direccion = new FormControl('');
+  telefonoMovil = new FormControl('');
+  telefonoFijo = new FormControl('');
 
   opciones_sexo: string[] = ["Otro","masculino", "femenino"];
 
@@ -45,7 +49,12 @@ export class PantallaPrincipalComponent implements OnInit {
       dni: this.dni,
       legajo: this.legajo,
       sexo: this.sexo,
-      correos: this.correos
+      correos: this.correos,
+      pais: this.pais,
+      ciudad: this.ciudad,
+      direccion: this.direccion,
+      telefonoFijo: this.telefonoFijo,
+      telefonoMovil: this.telefonoMovil
     });
     
     this.info = this.oauthService.getIdentityClaims();
@@ -59,7 +68,10 @@ export class PantallaPrincipalComponent implements OnInit {
         this.dni.setValue(usuario.dni); 
         this.legajo.setValue(usuario.legajo);
         this.sexo.setValue(usuario.genero);
-        this.obtenerCorreos(userId);        
+        this.direccion.setValue(usuario.direccion);
+        this.ciudad.setValue(usuario.ciudad);
+        this.pais.setValue(usuario.pais);
+        this.obtenerCorreos(userId);                
       },
       err => {
         console.log(err)
@@ -68,14 +80,6 @@ export class PantallaPrincipalComponent implements OnInit {
     this.subscriptions.push(this.service.obtenerAvatar(userId).subscribe(
       data => {
         console.log("Avatar:" + data);
-      },
-      err => {
-        console.log(err);
-      }
-    ));
-    this.subscriptions.push(this.service.obtenerCorreos(userId).subscribe(
-      data => {        
-        console.log("Correos: "+ data);
       },
       err => {
         console.log(err);

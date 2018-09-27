@@ -40,9 +40,10 @@
 
         </div>
         <div class="datosPerfil">
+            <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
             <mat-tab-group>
-                <mat-tab label="PERFIL">
-                    <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
+                <mat-tab label="PERFIL">                        
+                    <!-- <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()"> -->
                     <div class="bloquePerfil">
                           <div class="subBloque">                              
                                 <mat-form-field class="itemForm">
@@ -76,39 +77,33 @@
 
                           </div>
                     </div>
-                    </form>
+                    <!-- </form> -->
                 </mat-tab>
-                <!-- <mat-tab label="AVANZADO">
+                <mat-tab label="AVANZADO">
                   <div class="bloquePerfil">
                         <div class="subBloque">
-                            <form class="formulario tabPerfil">
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Nacionalidad" value="Argentino">
-                                </mat-form-field>
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Localidad" value="La Plata">
-                                </mat-form-field>
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Dirección" value="Calle 48 Nº 681 - 2B">
-                                </mat-form-field>
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Teléfono" value="2215032505">
-                                </mat-form-field>
-                            </form>
+                            <mat-form-field class="itemForm">
+                                <input matInput placeholder="País" formControlName="pais">
+                            </mat-form-field>
+                            <mat-form-field class="itemForm">
+                                <input matInput placeholder="Ciudad" formControlName="ciudad">
+                            </mat-form-field>
+                            <mat-form-field class="itemForm">
+                                <input matInput placeholder="Dirección" formControlName="direccion">
+                            </mat-form-field>
                         </div>
                         <div class="subBloque bloque2">
-                            <form class="formulario tabPerfil">
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Otro Dato" value="Otro dato">
-                                </mat-form-field>
-                                <mat-form-field class="itemForm">
-                                  <input matInput placeholder="Otro Dato" value="otro dato">
-                                </mat-form-field>
-                            </form>
+                            <mat-form-field class="itemForm">
+                                <input matInput placeholder="Teléfono celular" formControlName="telefonoMovil">
+                            </mat-form-field>
+                            <mat-form-field class="itemForm">
+                                <input matInput placeholder="Teléfono Fijo" formControlName="telefonoFijo">
+                            </mat-form-field>
                         </div>
                   </div>
-                </mat-tab> -->
+                </mat-tab>
             </mat-tab-group>
+            </form>
         </div>
     </div>
 
