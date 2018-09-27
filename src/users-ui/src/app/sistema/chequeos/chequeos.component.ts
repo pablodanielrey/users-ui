@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
 
 import { forkJoin } from 'rxjs';
 
@@ -18,7 +19,8 @@ export class ChequeosComponent implements OnInit {
 
   subscriptions: any[] = [];
 
-  constructor(private router: Router, 
+  constructor(@Inject(DOCUMENT) private document: any,
+              private router: Router, 
               private userService: UsersService,
               private loginService: LoginService,
               private oauthService: OAuthService) { }
@@ -36,7 +38,8 @@ export class ChequeosComponent implements OnInit {
             this.router.navigate(['/sistema/chequeos/clave_temporal']);  
             return;
           }
-          this.router.navigate(['/sistema/inicial']);
+          //this.router.navigate(['/sistema/inicial']);
+          this.document.location.href = 'https://www.au24.econo.unlp.edu.ar';
         }
       )
     );
