@@ -98,6 +98,10 @@ export class PantallaPrincipalComponent implements OnInit {
     this.router.navigate(['/sistema/agregar_correo']);
   }
 
+  cambiarPassword(): void {
+    this.router.navigate(['/sistema/cambiar_clave']);
+  }
+
   obtenerCorreos(uid) {
     this.subscriptions.push(this.service.obtenerCorreos(uid).subscribe(
       correos => {

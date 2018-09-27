@@ -27,7 +27,7 @@
             </div> -->
 
             <div class="contenedorAcciones">
-                <button mat-stroked-button class="btnCambiarContrasena">Cambiar Contraseña</button>
+                <button mat-stroked-button class="btnCambiarContrasena" (click)="cambiarPassword()">Cambiar Contraseña</button>
                 <button mat-button class="btnGuardar" type="submit" [disabled]="!formulario.valid" form="formulario">GUARDAR CAMBIOS</button>
                 <div class="contenedorMasAcciones">
                     <a class="link" routerLink=".">Acerca de</a><br>
@@ -43,7 +43,6 @@
             <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
             <mat-tab-group>
                 <mat-tab label="PERFIL">                        
-                    <!-- <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()"> -->
                     <div class="bloquePerfil">
                           <div class="subBloque">                              
                                 <mat-form-field class="itemForm">
@@ -77,7 +76,6 @@
 
                           </div>
                     </div>
-                    <!-- </form> -->
                 </mat-tab>
                 <mat-tab label="AVANZADO">
                   <div class="bloquePerfil">
