@@ -8,7 +8,7 @@ import { Http } from '@angular/http'
 import { Observable, of } from 'rxjs'
 import 'rxjs/Rx'
 
-import { Usuario, PrecondicionesData } from './entities/usuario'
+import { Usuario, PrecondicionesData, Mail } from './entities/usuario'
 
 const USUARIO_API_URL = environment.usersApiUrl
 
@@ -56,9 +56,9 @@ export class UsersService {
     return
   }
 
-  obtenerCorreos(uid:string): Observable<string> {
+  obtenerCorreos(uid:string): Observable<Array<Mail>> {
     let apiUrl = `${USUARIO_API_URL}/usuarios/${uid}/correos/`;
-    return this.http.get<string>(apiUrl);
+    return this.http.get<Array<Mail>>(apiUrl).pipe(map(datos => datos.map(d => new Mail(d))));
   }
 
   agregarCorreo(uid: string, correo: string): Observable<any>  {
@@ -77,8 +77,8 @@ export class UsersService {
     return this.http.post<any>(apiUrl, data);
   }
 
-  eliminarCorreo(cid: string) {
-    return
+  eliminarCorreo(cid: string): Observable<string> {
+    return of(cid);
   }
 
   cambiarClave(uid, clave) {
@@ -93,7 +93,7 @@ export class UsersService {
     */
     let r : PrecondicionesData = {
       correo: true,
-      clave: false
+      clave: true
     }
     return of(r);
   }

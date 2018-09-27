@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
+import {ImageCropperModule} from 'ng2-img-cropper/index';
+
 
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -42,7 +43,6 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
     HeaderComponent,
     PantallaPrincipalComponent,
     SistemaComponent,
-    ImageCropperComponent,
     DialogoModificarFotoComponent,
     AgregarcorreoComponent,
     CambiarclaveComponent,
@@ -62,6 +62,7 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
     HttpClientModule,
     ReactiveFormsModule,
     MyMaterialModule,
+    ImageCropperModule,
     OAuthModule.forRoot({
       resourceServer: {
         allowedUrls: ['http'],

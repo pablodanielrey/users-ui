@@ -40,9 +40,24 @@ export class Usuario {
 
 export class Mail {
   id: string = null;
-  mail: string;
+  email: string;
   creado: Date = null;
   actualizado: Date = null; 
+
+  constructor(o:object) {
+    try {
+      Object.assign(this, o);
+      this.creado = (this.creado == null ? null : new Date(this.creado));
+      this.actualizado = (this.actualizado == null ? null : new Date(this.actualizado));
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  esInstitucional(): boolean {
+    let domain = this.email.split('@')[1];    
+    return domain.includes('econo.unlp.edu.ar');
+  }
 }
 
 export class Telefono {

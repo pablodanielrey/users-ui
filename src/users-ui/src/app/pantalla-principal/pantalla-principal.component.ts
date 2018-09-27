@@ -3,9 +3,9 @@ import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
-import { Usuario } from '../entities/usuario'
+import { Usuario, Mail } from '../entities/usuario'
 
-import { FormBuilder, FormControl, Validators, FormGroup, FormArray } from '@angular/forms'; 
+import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractControl } from '@angular/forms'; 
 
 @Component({
   selector: 'app-pantalla-principal',
@@ -19,10 +19,10 @@ export class PantallaPrincipalComponent implements OnInit {
   formulario: FormGroup;
   nombre = new FormControl('', Validators.required);
   apellido = new FormControl('', Validators.required);
-  dni = new FormControl('');
-  legajo = new FormControl('');
+  dni = new FormControl({value:'', disabled: true});
+  legajo = new FormControl({value:'', disabled: true});
   sexo = new FormControl('', Validators.required);
-  correos: FormArray;
+  correos: FormArray = new FormArray([]);
 
 
   opciones_sexo: string[] = ["Otro","masculino", "femenino"];
@@ -46,9 +46,6 @@ export class PantallaPrincipalComponent implements OnInit {
       correos: this.correos
     });
     
-    this.dni.disable();
-    this.legajo.disable();
-
     this.info = this.oauthService.getIdentityClaims();
     let userId = this.info.sub;
     this.subscriptions.push(this.service.obtenerUsuario(userId).subscribe(
@@ -60,9 +57,7 @@ export class PantallaPrincipalComponent implements OnInit {
         this.dni.setValue(usuario.dni); 
         this.legajo.setValue(usuario.legajo);
         this.sexo.setValue(usuario.genero);
-        this.correos.setValue(['emanuel@econo.unlp.edu.ar']);
-
-        console.log(this.correos.value)
+        this.obtenerCorreos(userId);        
       },
       err => {
         console.log(err)
@@ -91,6 +86,46 @@ export class PantallaPrincipalComponent implements OnInit {
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
     this.subscriptions = [];
+  }
+
+  obtenerCorreos(uid) {
+    this.subscriptions.push(this.service.obtenerCorreos(uid).subscribe(
+      correos => {
+        let items = this.formulario.get('correos') as FormArray;
+        for (let i = 0; i < correos.length; i++) {
+          items.push(this.fb.group({
+            email: {value: correos[i].email, disabled: true},
+            id: correos[i].id,
+            eliminable: !correos[i].esInstitucional()
+          }));     
+        }        
+      },
+      err => {
+        console.log(err);
+      }
+    ));    
+  }
+
+  eliminable(i: number): boolean {
+    let items = this.formulario.get('correos') as FormArray;
+    return (items.controls[i] as FormGroup).controls.eliminable.value;
+  }
+
+  correosControls(): AbstractControl[] {
+    return (this.formulario.get('correos') as FormArray).controls;
+  }
+
+  eliminarCorreo(i: number): void {
+    let items = this.formulario.get('correos') as FormArray;
+    let id = (items.controls[i] as FormGroup).controls.id.value;
+    this.subscriptions.push(this.service.eliminarCorreo(id).subscribe (
+      cid => {
+        items.removeAt(i);
+      },
+      err => {
+        console.log(err);
+      }
+    ));
   }
 
   cambiarFoto(): void {

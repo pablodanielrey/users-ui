@@ -2,6 +2,7 @@ import { Component, Inject , ViewChild, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef,MAT_DIALOG_DATA } from '@angular/material';
 import {ImageCropperComponent, CropperSettings, Bounds} from 'ng2-img-cropper';
 
+
 @Component({
   selector: 'dialogo-modificar-foto',
   templateUrl: './dialogo-modificar-foto.component.html',
