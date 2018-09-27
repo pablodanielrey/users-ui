@@ -29,7 +29,7 @@ const routes: Routes = [
     component: SistemaComponent,
     canActivate: [OidpGuard],
     children: [
-      { path: 'inicial', component: PantallaPrincipalComponent },
+      //{ path: 'inicial', component: PantallaPrincipalComponent },
       {
         path: 'agregar_correo',
         component: AgregarcorreoComponent,
@@ -43,7 +43,7 @@ const routes: Routes = [
         path: 'cambiar_clave',
         component: CambiarclaveComponent,
         children: [
-          { path: 'ingresar_clave', component: IngresarClaveComponent},
+          { path: 'ingresar_clave/:uid', component: IngresarClaveComponent},
           { path: 'clave_modificada', component: ClaveModificadaComponent }
         ]
       },

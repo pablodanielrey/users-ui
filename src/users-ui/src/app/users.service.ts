@@ -86,16 +86,20 @@ export class UsersService {
   }
 
 
-  precondiciones(uid):Observable<PrecondicionesData> {
+  precondiciones():Observable<PrecondicionesData> {
     /*
       false => entonces tiene que redirigir al proceso para cargar el dato determinado
       true => la precondicion esta correcta, por lo que no redirige.
     */
+   let apiUrl = `${USUARIO_API_URL}/precondiciones`;
+   return this.http.get<PrecondicionesData>(apiUrl);
+   /*
     let r : PrecondicionesData = {
       correo: true,
       clave: true
     }
     return of(r);
+    */
   }
 
 }

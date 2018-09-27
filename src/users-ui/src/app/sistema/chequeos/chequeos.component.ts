@@ -1,7 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
+
+import { forkJoin } from 'rxjs';
+
+import { OAuthService } from 'angular-oauth2-oidc';
+
 import { UsersService } from '../../users.service'
-import { OAuthService } from 'angular-oauth2-oidc'
+import { LoginService } from '../../login.service';
+
 
 @Component({
   selector: 'app-chequeos',
@@ -10,35 +17,33 @@ import { OAuthService } from 'angular-oauth2-oidc'
 })
 export class ChequeosComponent implements OnInit {
 
-  userId: string;
   subscriptions: any[] = [];
 
-  constructor(private router: Router, 
-              private service: UsersService,
+  constructor(@Inject(DOCUMENT) private document: any,
+              private router: Router, 
+              private userService: UsersService,
+              private loginService: LoginService,
               private oauthService: OAuthService) { }
 
   ngOnInit() {
-    let info: any = this.oauthService.getIdentityClaims();
-    this.userId = info.sub;
-    this.subscriptions.push(this.service.precondiciones(this.userId).subscribe(
-      pre => {
-        if (!pre.clave) {
-          this.router.navigate(['/sistema/chequeos/clave_temporal']);
-          return;
+
+    this.subscriptions.push(
+      forkJoin(this.userService.precondiciones(), this.loginService.precondiciones()).subscribe(
+        ([pu, pl]) => {
+          if (!pu.correo) {
+            this.router.navigate(['/sistema/chequeos/sin_correo']);
+            return;
+          }
+          if (!pl.clave) {
+            this.router.navigate(['/sistema/chequeos/clave_temporal']);  
+            return;
+          }
+          //this.router.navigate(['/sistema/inicial']);
+          this.document.location.href = 'https://www.au24.econo.unlp.edu.ar';
         }
-
-        if (!pre.correo) {
-          this.router.navigate(['/sistema/chequeos/sin_correo']);
-          return;
-        }
-
-        this.router.navigate(['/sistema/inicial']);
-      },
-      err => {
-        console.log(err);
-      } 
-
-    ));
+      )
+    );
+  
   }
 
   ngOnDestroy() {
