@@ -1,3 +1,9 @@
+.procesando {
+  opacity: .9;
+  height: 100%;
+}
+
+
 .usuarios {
   height: 100%;
 }
