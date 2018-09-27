@@ -38,8 +38,8 @@ export class ChequeosComponent implements OnInit {
             this.router.navigate(['/sistema/chequeos/clave_temporal']);  
             return;
           }
-          //this.router.navigate(['/sistema/inicial']);
-          this.document.location.href = 'https://www.au24.econo.unlp.edu.ar';
+          this.router.navigate(['/sistema/inicial']);
+          // this.document.location.href = 'https://www.au24.econo.unlp.edu.ar';
         }
       )
     );

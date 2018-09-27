@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
 import { Usuario, Mail } from '../entities/usuario'
+import { Router } from '@angular/router';
 
 import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractControl } from '@angular/forms'; 
 
@@ -33,6 +34,7 @@ export class PantallaPrincipalComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               private fb: FormBuilder, 
+              private router: Router,
               private service: UsersService,
               private oauthService: OAuthService) { }
 
@@ -86,6 +88,10 @@ export class PantallaPrincipalComponent implements OnInit {
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
     this.subscriptions = [];
+  }
+
+  agregarCorreo(): void {
+    this.router.navigate(['/sistema/agregar_correo']);
   }
 
   obtenerCorreos(uid) {
