@@ -18,6 +18,9 @@ export class PantallaPrincipalComponent implements OnInit {
 
   info: any;
   foto: any;
+  procesando: boolean = true;
+  procesandoCorreo: boolean = true;
+  userId: string;
   formulario: FormGroup;
   nombre = new FormControl('', Validators.required);
   apellido = new FormControl('', Validators.required);
@@ -59,8 +62,8 @@ export class PantallaPrincipalComponent implements OnInit {
     });
     
     this.info = this.oauthService.getIdentityClaims();
-    let userId = this.info.sub;
-    this.subscriptions.push(this.service.obtenerUsuario(userId).subscribe(
+    this.userId = this.info.sub;
+    this.subscriptions.push(this.service.obtenerUsuario(this.userId).subscribe(
       usuario => {
         console.log(usuario);
         this.usuario = usuario;
@@ -72,23 +75,24 @@ export class PantallaPrincipalComponent implements OnInit {
         this.direccion.setValue(usuario.direccion);
         this.ciudad.setValue(usuario.ciudad);
         this.pais.setValue(usuario.pais);
-        this.obtenerCorreos(userId);
-        this._parsearTelefonos(usuario.telefonos);                
+        this.obtenerCorreos(this.userId);
+        this._parsearTelefonos(usuario.telefonos);   
+        this.procesando = false && this.procesandoCorreo;             
       },
       err => {
         console.log(err)
+        this.procesando = false;
       }
-    ));/*
-    this.subscriptions.push(this.service.obtenerAvatar(userId).subscribe(
+    ));
+
+    this.subscriptions.push(this.service.obtenerAvatar(this.userId).subscribe(
       data => {
-        console.log("Avatar:" + data);
+        this.foto = data;
       },
       err => {
         console.log(err);
       }
     ));
-    */
-    console.log(this.info);
   }
 
   ngOnDestroy() {
@@ -116,7 +120,7 @@ export class PantallaPrincipalComponent implements OnInit {
     this.router.navigate(['/sistema/cambiar_clave']);
   }
 
-  obtenerCorreos(uid) {
+  obtenerCorreos(uid) {    
     this.subscriptions.push(this.service.obtenerCorreos(uid).subscribe(
       correos => {
         let items = this.formulario.get('correos') as FormArray;
@@ -125,8 +129,10 @@ export class PantallaPrincipalComponent implements OnInit {
             email: {value: correos[i].email, disabled: true},
             id: correos[i].id,
             eliminable: !correos[i].esInstitucional()
-          }));     
-        }        
+          }));   
+        } 
+        this.procesandoCorreo = false; 
+        this.procesando = this.procesando && this.procesandoCorreo;                
       },
       err => {
         console.log(err);
@@ -146,28 +152,55 @@ export class PantallaPrincipalComponent implements OnInit {
   eliminarCorreo(i: number): void {
     let items = this.formulario.get('correos') as FormArray;
     let id = (items.controls[i] as FormGroup).controls.id.value;
+    this.procesando = true;
     this.subscriptions.push(this.service.eliminarCorreo(id).subscribe (
       cid => {
         items.removeAt(i);
+        this.procesando = false;
       },
       err => {
         console.log(err);
+        this.procesando = false;        
       }
     ));
   }
 
   cambiarFoto(): void {
     this.cambiarFotoDialogRef = this.dialog.open(DialogoModificarFotoComponent);
-    this.cambiarFotoDialogRef.afterClosed().subscribe(result => {
+    this.cambiarFotoDialogRef.afterClosed().subscribe(result => {      
       if (result) {
-        this.foto = result;
+
+        this.procesando = true;
+        this.subscriptions.push(this.service.agregarAvatar(this.userId, result).subscribe(
+          f => {
+            this.foto = f;
+            this.procesando = false;
+          },
+          err => {
+            console.log(err);
+            this.procesando = false;
+          }
+        ))        
       }
     });
   }
 
   guardar(): void {
-    console.log("guardar");
-    console.warn(this.formulario.value);
+    if (!this.formulario.valid) {
+      return;
+    }    
+    this.procesando = true;
+    this.subscriptions.push(this.service.actualizarUsuario(this.userId, this.formulario.value).subscribe (
+      data => {
+        console.log(data);
+        this.procesando = false;
+        
+      },
+      err => {
+        console.log(err);
+        this.procesando = false;
+      }
+    ))
   }
 
 }
