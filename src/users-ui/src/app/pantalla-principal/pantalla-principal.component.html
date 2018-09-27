@@ -42,9 +42,9 @@
         <div class="datosPerfil">
             <form id="formulario" class="formulario tabPerfil" [formGroup]='formulario' (ngSubmit)="guardar()">
             <mat-tab-group>
-                <mat-tab label="PERFIL">                        
+                <mat-tab label="PERFIL">
                     <div class="bloquePerfil">
-                          <div class="subBloque">                              
+                          <div class="subBloque">
                                 <mat-form-field class="itemForm">
                                 <input matInput placeholder="Nombre" formControlName='nombre'>
                                 </mat-form-field>
@@ -53,7 +53,7 @@
                                 </mat-form-field>
                                 <mat-form-field class="itemForm">
                                 <input matInput placeholder="DNI" formControlName='dni' >
-                                </mat-form-field>                                  
+                                </mat-form-field>
                                 <mat-form-field class="itemForm">
                                 <input matInput placeholder="Legajo" formControlName="legajo" readonly="readonly">
                                 </mat-form-field>
@@ -64,14 +64,14 @@
                                 </mat-form-field>
                           </div>
                           <div class="subBloque bloque2">
-                                <mat-form-field class="itemForm" formArrayName="correos" *ngFor="let item of correosControls(); let i = index;">
-                                    <div [formGroupName]="i">
+                                <div class="itemForm"  formArrayName="correos" *ngFor="let item of correosControls(); let i = index;">
+                                    <mat-form-field class="itemForm" [formGroupName]="i">
                                         <input matInput placeholder="Correo electrónico" formControlName="email">
                                         <button type="button" matSuffix mat-icon-button matTooltip="Eliminar Correo" *ngIf="eliminable(i)" (click)="eliminarCorreo(i)">
                                             <mat-icon>delete_outline</mat-icon>
-                                        </button>                                            
-                                    </div>
-                                </mat-form-field>
+                                        </button>
+                                    </mat-form-field>
+                                </div>
                                 <button type="button" mat-stroked-button class="btnAgregarCorreo" (click)="agregarCorreo()">Agregar correo</button>
 
                           </div>
@@ -103,6 +103,8 @@
             </mat-tab-group>
             </form>
         </div>
+        <button mat-button class="btnGuardarCel" type="submit" [disabled]="!formulario.valid" form="formulario">GUARDAR CAMBIOS</button>
+
     </div>
 
 </div>

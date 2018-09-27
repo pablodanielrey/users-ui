@@ -34,7 +34,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4186e1', end
 }
 
 .perfil {
-  width: 25%;
+  width: 30%;
   border-right: 1px solid #dddddd;
   margin-right: 20px;
 
@@ -117,16 +117,21 @@ a {
 .bloquePerfil {
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 }
 
 .formulario {
   min-width: 150px;
-  max-width: 500px;
+  /* max-width: 500px; */
   width: 95%;
 }
 
+.subBloque {
+  width: 50%;
+}
+
 .itemForm {
-  width: 100%;
+  width: 90%;
 }
 
 .btnAgregarCorreo {
@@ -135,7 +140,11 @@ a {
 }
 
 .datosPerfil {
-  margin-top: 20px;
+  width: 100%;
+}
+
+.btnGuardarCel {
+  display: none;
 }
 
 
@@ -178,6 +187,17 @@ a {
     display: none;
   }
   .bloque2 {
-    margin-top: -40px;
+    /* margin-top: -40px; */
+  }
+  .subBloque {
+    width: 100%;
+  }
+  .btnGuardarCel {
+    display: block;
+    background-color: #4186e1;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
   }
 }
