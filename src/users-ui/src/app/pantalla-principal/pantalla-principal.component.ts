@@ -3,7 +3,7 @@ import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
-import { Usuario, Mail } from '../entities/usuario'
+import { Usuario, Mail, Telefono } from '../entities/usuario'
 import { Router } from '@angular/router';
 
 import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractControl } from '@angular/forms'; 
@@ -13,6 +13,7 @@ import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractCon
   templateUrl: './pantalla-principal.component.html',
   styleUrls: ['./pantalla-principal.component.css']
 })
+
 export class PantallaPrincipalComponent implements OnInit {
 
   info: any;
@@ -71,7 +72,8 @@ export class PantallaPrincipalComponent implements OnInit {
         this.direccion.setValue(usuario.direccion);
         this.ciudad.setValue(usuario.ciudad);
         this.pais.setValue(usuario.pais);
-        this.obtenerCorreos(userId);                
+        this.obtenerCorreos(userId);
+        this._parsearTelefonos(usuario.telefonos);                
       },
       err => {
         console.log(err)
@@ -92,6 +94,18 @@ export class PantallaPrincipalComponent implements OnInit {
   ngOnDestroy() {
     this.subscriptions.forEach(s => s.unsubscribe());
     this.subscriptions = [];
+  }
+
+  _parsearTelefonos(telefonos:Array<Telefono>): void {
+    telefonos.forEach(t => {
+      if (t.tipo == Telefono.tipoFijo) {
+        this.telefonoFijo.setValue(t.nro);
+      } 
+      if (t.tipo == Telefono.tipoMovil) {
+        this.telefonoMovil.setValue(t.nro);
+      }
+      
+    });
   }
 
   agregarCorreo(): void {
