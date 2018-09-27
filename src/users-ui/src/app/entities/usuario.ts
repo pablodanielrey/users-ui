@@ -37,6 +37,9 @@ export class Usuario {
         Object.assign(this, o);
         this.creado = (this.creado == null ? null : new Date(this.creado));
         this.actualizado = (this.actualizado == null ? null : new Date(this.actualizado));
+        let tel = new Array<Telefono>();        
+        this.telefonos.forEach(t => tel.push(new Telefono(t)));
+        this.telefonos = tel;
       } catch(e) {
         console.log(e);
       }
@@ -54,7 +57,7 @@ export class Mail {
     try {
       Object.assign(this, o);
       this.creado = (this.creado == null ? null : new Date(this.creado));
-      this.actualizado = (this.actualizado == null ? null : new Date(this.actualizado));
+      this.actualizado = (this.actualizado == null ? null : new Date(this.actualizado));      
     } catch(e) {
       console.log(e);
     }
@@ -70,4 +73,15 @@ export class Telefono {
   id: string = null;
   nro: string;
   tipo: string;
+  static readonly tipoFijo = 'fijo';
+  static readonly tipoMovil = 'movil';
+
+  constructor(o: Object) {
+    try {
+      Object.assign(this, o);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
 }
