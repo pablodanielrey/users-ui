@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
+//import {ImageCropperComponent, CropperSettings} from 'ng2-img-cropper';
 
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,7 +17,7 @@ import { PantallaPrincipalComponent } from './pantalla-principal/pantalla-princi
 import { AppRoutingModule } from './/app-routing.module';
 import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
-import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
+//import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
 import { Oauth2Component } from './oauth2/oauth2.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
@@ -42,8 +42,8 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
     HeaderComponent,
     PantallaPrincipalComponent,
     SistemaComponent,
-    ImageCropperComponent,
-    DialogoModificarFotoComponent,
+//    ImageCropperComponent,
+  //  DialogoModificarFotoComponent,
     AgregarcorreoComponent,
     CambiarclaveComponent,
     ChequeosComponent,
@@ -69,7 +69,7 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
       }
     })
   ],
-  entryComponents: [DialogoModificarFotoComponent],
+  //entryComponents: [DialogoModificarFotoComponent],
   providers: [
     UsersService,
     OidpGuard
