@@ -7,7 +7,7 @@ import { Http } from '@angular/http'
 
 import { Observable, of } from 'rxjs'
 
-import { CambiarClaveData } from './entities/usuario';
+import { CambiarClaveData, PrecondicionesData } from './entities/usuario';
 
 const LOGIN_API_URL = environment.loginApiUrl;
 
@@ -25,4 +25,22 @@ export class LoginService {
     }
     return this.http.post<CambiarClaveData>(apiUrl, data);
   }
+
+  precondiciones():Observable<PrecondicionesData> {
+    /*
+      false => entonces tiene que redirigir al proceso para cargar el dato determinado
+      true => la precondicion esta correcta, por lo que no redirige.
+    */
+   let apiUrl = `${LOGIN_API_URL}/precondiciones`;
+   return this.http.get<PrecondicionesData>(apiUrl);
+   /*
+    let r : PrecondicionesData = {
+      correo: true,
+      clave: false
+    }
+    return of(r);
+    */
+  }
+
 }
+
