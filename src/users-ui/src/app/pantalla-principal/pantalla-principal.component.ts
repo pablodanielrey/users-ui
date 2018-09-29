@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo-modificar-foto.component';
+//import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo-modificar-foto.component';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
@@ -38,7 +38,7 @@ export class PantallaPrincipalComponent implements OnInit {
 
   usuario: Usuario = null;  
   subscriptions: any[] = [];
-  cambiarFotoDialogRef: MatDialogRef<DialogoModificarFotoComponent>;
+  //cambiarFotoDialogRef: MatDialogRef<DialogoModificarFotoComponent>;
 
   constructor(public dialog: MatDialog,
               private fb: FormBuilder, 
@@ -165,7 +165,9 @@ export class PantallaPrincipalComponent implements OnInit {
     ));
   }
 
+
   cambiarFoto(): void {
+/*
     this.cambiarFotoDialogRef = this.dialog.open(DialogoModificarFotoComponent);
     this.cambiarFotoDialogRef.afterClosed().subscribe(result => {      
       if (result) {
@@ -183,6 +185,7 @@ export class PantallaPrincipalComponent implements OnInit {
         ))        
       }
     });
+*/
   }
 
   guardar(): void {
