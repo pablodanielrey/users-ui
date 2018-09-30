@@ -16,6 +16,14 @@
   display: none;
 }
 
+.version {
+  align-content: flex-end;
+  align-self: flex-end;
+  align-items: flex-end;
+  justify-items: left;
+  justify-self: flex-end;
+}
+
 @media screen and (max-width: 719px) {
   .footerAlternativo {
     display: block;

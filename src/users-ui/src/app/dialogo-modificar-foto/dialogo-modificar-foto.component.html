@@ -1,0 +1,17 @@
+
+<div mat-dialog-content class="contenedorFoto">
+  <div class="pull-left">
+
+    <div>Seleccionar foto de Perfil</div>      <br>
+
+      <img-cropper [image]="data1" [settings]="cropperSettings1" (onCrop)="cropped($event)" class="img"></img-cropper>
+      <br>
+      <!-- <span class="result" *ngIf="data1.image" >
+          <img [src]="data1.image" [width]="cropperSettings1.croppedWidth" [height]="cropperSettings1.croppedHeight">
+      </span> -->
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data1.image" cdkFocusInitial class="btnAceptar">ACEPTAR</button>
+  <button mat-button [mat-dialog-close]="null" >CANCELAR</button>
+</div>

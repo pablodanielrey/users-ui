@@ -50,4 +50,8 @@ export class IngresarClaveComponent implements OnInit {
     )
   }  
 
+  volver() {
+    this.router.navigate(['/']);
+  }
+
 }

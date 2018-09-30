@@ -67,7 +67,6 @@
                                 </mat-form-field>
                           </div>
                           <div class="subBloque bloque2">
-<<<<<<< HEAD
                                 <div class="itemForm"  formArrayName="correos" *ngFor="let item of correosControls(); let i = index;">
                                     <mat-form-field class="itemForm" [formGroupName]="i">
                                         <input matInput placeholder="Correo electrónico" formControlName="email">
@@ -77,28 +76,6 @@
                                     </mat-form-field>
                                 </div>
                                 <button type="button" mat-stroked-button class="btnAgregarCorreo" (click)="agregarCorreo()">Agregar correo</button>
-=======
-
-                                <!-- 
-                                <mat-form-field class="itemForm" formArrayName="correos" *ngFor="let item of formulario.controls.correos.controls; let i = index;">
-                                        <input matInput placeholder="Correo electrónico" formControlName="formulario.controls.correos.controls[i]">
-                                </mat-form-field>
-                                -->
-
-                                
-                              <!--
-                                <mat-form-field class="itemForm">
-                                    <input matInput placeholder="Correo electrónico" value="walter.blanco@econo.unlp.edu.ar" readonly="readonly">
-                                </mat-form-field>
-                                <mat-form-field class="itemForm">
-                                    <input type="tel" matInput placeholder="Correo electrónico" value="lllwalterlll@gmail.com" readonly="readonly">
-                                    <button matSuffix mat-icon-button matTooltip="Eliminar Correo">
-                                    <mat-icon>delete_outline</mat-icon>
-                                    </button>
-                                </mat-form-field>
-                                -->
-                                <button mat-stroked-button class="btnAgregarCorreo">Agregar correo</button>
->>>>>>> master
 
                           </div>
                     </div>

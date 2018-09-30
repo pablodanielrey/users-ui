@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
+
 import { OAuthService } from 'angular-oauth2-oidc';
 
 @Component({
@@ -10,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   info: any;
 
-  constructor(private oauthService: OAuthService) { }
+  constructor(private router: Router, private oauthService: OAuthService) { }
 
   ngOnInit() {
     this.info = this.oauthService.getIdentityClaims();
@@ -18,6 +20,10 @@ export class HeaderComponent implements OnInit {
 
   salir():void {
     this.oauthService.logOut();
+  }
+
+  cambiar_clave() {
+    this.router.navigate(['/sistema/cambiar_clave']);
   }
 
 }
