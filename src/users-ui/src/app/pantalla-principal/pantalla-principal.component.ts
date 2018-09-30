@@ -150,10 +150,11 @@ export class PantallaPrincipalComponent implements OnInit {
   }
 
   eliminarCorreo(i: number): void {
+    let uid = this.usuario.id;
     let items = this.formulario.get('correos') as FormArray;
-    let id = (items.controls[i] as FormGroup).controls.id.value;
+    let cid = (items.controls[i] as FormGroup).controls.id.value;
     this.procesando = true;
-    this.subscriptions.push(this.service.eliminarCorreo(id).subscribe (
+    this.subscriptions.push(this.service.eliminarCorreo(uid, cid).subscribe (
       cid => {
         items.removeAt(i);
         this.procesando = false;
