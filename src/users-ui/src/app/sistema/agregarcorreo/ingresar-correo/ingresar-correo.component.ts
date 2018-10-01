@@ -58,4 +58,8 @@ export class IngresarCorreoComponent implements OnInit {
     
   }
 
+  limpiarError(err) {
+    this.form.reset();
+  }
+
 }

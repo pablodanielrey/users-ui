@@ -17,9 +17,11 @@
           <mat-form-field>
             <input matInput placeholder="Repeti tu correo electrónico" formControlName='correo2' disableCopyPaste>
           </mat-form-field>
-          <mat-error *ngIf='form.errors'>Los correos no son iguales</mat-error>
+          <mat-error *ngIf="form.hasError('correos')">Los correos no son iguales</mat-error>
+          <mat-error *ngIf="form.hasError('servidor')">Error de servidor, por favor reintente la operación</mat-error>
         </div>
-        <button mat-button type='submit' Class="btnGuardar">CONTINUAR</button>
+        <button *ngIf='!form.errors' mat-button type='submit' class="btnGuardar">CONTINUAR</button>
+        <button *ngIf="form.hasError('servidor')" (click)="limpiarError('servidor')" mat-button class="btnGuardar">REINTENTAR</button>
       </form>
 
     </div>
