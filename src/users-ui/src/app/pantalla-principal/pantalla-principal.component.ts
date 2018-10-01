@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo-modificar-foto.component';
+import { forkJoin } from 'rxjs';
+
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
 import { OAuthService } from 'angular-oauth2-oidc'
@@ -63,8 +65,14 @@ export class PantallaPrincipalComponent implements OnInit {
     
     this.info = this.oauthService.getIdentityClaims();
     this.userId = this.info.sub;
-    this.subscriptions.push(this.service.obtenerUsuario(this.userId).subscribe(
-      usuario => {
+    this.subscriptions.push(
+      forkJoin(
+        this.service.obtenerUsuario(this.userId),
+        this.service.obtenerCorreos(this.userId)
+      ).subscribe(
+      datos => {
+        let usuario = datos[0];
+        let correos = datos[1];
         console.log(usuario);
         this.usuario = usuario;
         this.nombre.setValue(usuario.nombre);
@@ -75,7 +83,7 @@ export class PantallaPrincipalComponent implements OnInit {
         this.direccion.setValue(usuario.direccion);
         this.ciudad.setValue(usuario.ciudad);
         this.pais.setValue(usuario.pais);
-        this.obtenerCorreos(this.userId);
+        this._procesarCorreos(correos);
         this._parsearTelefonos(usuario.telefonos);   
         this.procesando = false && this.procesandoCorreo;             
       },
@@ -100,6 +108,19 @@ export class PantallaPrincipalComponent implements OnInit {
     this.subscriptions = [];
   }
 
+  _procesarCorreos(correos) {    
+    let items = this.formulario.get('correos') as FormArray;
+    for (let i = 0; i < correos.length; i++) {
+      items.push(this.fb.group({
+        email: {value: correos[i].email, disabled: true},
+        id: correos[i].id,
+        eliminable: !correos[i].esInstitucional()
+      }));   
+    } 
+    this.procesandoCorreo = false; 
+    this.procesando = this.procesando && this.procesandoCorreo;                
+  }
+
   _parsearTelefonos(telefonos:Array<Telefono>): void {
     telefonos.forEach(t => {
       if (t.tipo == Telefono.tipoFijo) {
@@ -120,25 +141,7 @@ export class PantallaPrincipalComponent implements OnInit {
     this.router.navigate(['/sistema/cambiar_clave']);
   }
 
-  obtenerCorreos(uid) {    
-    this.subscriptions.push(this.service.obtenerCorreos(uid).subscribe(
-      correos => {
-        let items = this.formulario.get('correos') as FormArray;
-        for (let i = 0; i < correos.length; i++) {
-          items.push(this.fb.group({
-            email: {value: correos[i].email, disabled: true},
-            id: correos[i].id,
-            eliminable: !correos[i].esInstitucional()
-          }));   
-        } 
-        this.procesandoCorreo = false; 
-        this.procesando = this.procesando && this.procesandoCorreo;                
-      },
-      err => {
-        console.log(err);
-      }
-    ));    
-  }
+
 
   eliminable(i: number): boolean {
     let items = this.formulario.get('correos') as FormArray;
