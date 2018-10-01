@@ -85,10 +85,12 @@ export class PantallaPrincipalComponent implements OnInit {
         this.pais.setValue(usuario.pais);
         this._procesarCorreos(correos);
         this._parsearTelefonos(usuario.telefonos);   
-        this.procesando = false && this.procesandoCorreo;             
       },
       err => {
         console.log(err)
+        this.procesando = false;
+      }, 
+      () => {
         this.procesando = false;
       }
     ));
