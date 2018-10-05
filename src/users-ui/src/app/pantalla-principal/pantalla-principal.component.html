@@ -61,8 +61,8 @@
                                 <input matInput placeholder="Legajo" formControlName="legajo" readonly="readonly">
                                 </mat-form-field>
                                 <mat-form-field class="itemForm">
-                                    <mat-select placeholder="Sexo" formControlName="sexo">
-                                        <mat-option *ngFor="let sexo of opciones_sexo" [value]="sexo">{{ sexo | titlecase }}</mat-option>
+                                    <mat-select placeholder="Sexo" formControlName="genero">
+                                        <mat-option *ngFor="let genero of opciones_sexo" [value]="genero">{{ genero | titlecase }}</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                           </div>
@@ -91,6 +91,11 @@
                             </mat-form-field>
                             <mat-form-field class="itemForm">
                                 <input matInput placeholder="Dirección" formControlName="direccion">
+                            </mat-form-field>
+                            <mat-form-field class="itemForm">
+                                <input matInput [matDatepicker]="picker" class="inputFecha" placeholder="Nacimiento" formControlName="nacimiento">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>                                
                             </mat-form-field>
                         </div>
                         <div class="subBloque bloque2">

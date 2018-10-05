@@ -39,7 +39,8 @@ export class UsersService {
           telefonoMovil:""
      * }
     */ 
-    return of('ok');
+   let apiUrl = `${USUARIO_API_URL}/usuarios/${uid}`;
+   return this.http.post<any>(apiUrl, usuario);
   }
 
   obtenerAvatar(uid:string): Observable<string> {
@@ -49,7 +50,7 @@ export class UsersService {
     return of(this.foto);
   }
 
-  agregarAvatar(uid: string, avatar: string): Observable<string> {
+  actualizarAvatar(uid: string, avatar: string): Observable<string> {
     this.foto = avatar;
     return of(this.foto);
   }

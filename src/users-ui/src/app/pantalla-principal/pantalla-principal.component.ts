@@ -35,6 +35,7 @@ export class PantallaPrincipalComponent implements OnInit {
   direccion = new FormControl('');
   telefonoMovil = new FormControl('');
   telefonoFijo = new FormControl('');
+  nacimiento = new FormControl('');
 
   opciones_sexo: string[] = ["Otro","masculino", "femenino"];
 
@@ -54,13 +55,14 @@ export class PantallaPrincipalComponent implements OnInit {
       apellido: this.apellido,
       dni: this.dni,
       legajo: this.legajo,
-      sexo: this.sexo,
+      genero: this.sexo,
       correos: this.correos,
       pais: this.pais,
       ciudad: this.ciudad,
       direccion: this.direccion,
       telefonoFijo: this.telefonoFijo,
-      telefonoMovil: this.telefonoMovil
+      telefonoMovil: this.telefonoMovil,
+      nacimiento: this.nacimiento
     });
     
     this.info = this.oauthService.getIdentityClaims();
@@ -85,6 +87,8 @@ export class PantallaPrincipalComponent implements OnInit {
         this.pais.setValue(usuario.pais);
         this._procesarCorreos(correos);
         this._parsearTelefonos(usuario.telefonos);   
+        let date = ('nacimiento' in usuario && usuario.nacimiento) ? new Date(usuario.nacimiento): new Date();
+        this.nacimiento.setValue(date);
       },
       err => {
         console.log(err)
@@ -179,7 +183,7 @@ export class PantallaPrincipalComponent implements OnInit {
       if (result) {
 
         this.procesando = true;
-        this.subscriptions.push(this.service.agregarAvatar(this.userId, result).subscribe(
+        this.subscriptions.push(this.service.actualizarAvatar(this.userId, result).subscribe(
           f => {
             this.foto = f;
             this.procesando = false;
@@ -199,6 +203,7 @@ export class PantallaPrincipalComponent implements OnInit {
       return;
     }    
     this.procesando = true;
+    console.log(this.formulario.value);
     this.subscriptions.push(this.service.actualizarUsuario(this.userId, this.formulario.value).subscribe (
       data => {
         console.log(data);
