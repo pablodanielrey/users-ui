@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ErrorComponent } from './error/error.component';
+
 import { Oauth2Component } from './oauth2/oauth2.component';
 import { OidpGuard } from './oauth2/oidp.guard';
 import { SistemaComponent } from './sistema/sistema.component';
@@ -22,6 +24,7 @@ import { ClaveTemporalComponent } from './sistema/chequeos/clave-temporal/clave-
 import { SinCorreoComponent } from './sistema/chequeos/sin-correo/sin-correo.component';
 
 const routes: Routes = [
+  { path: 'error/:error', component: ErrorComponent },
   { path: 'oauth2', component: Oauth2Component },
   { path: 'loader', component: LoaderComponent},
   {

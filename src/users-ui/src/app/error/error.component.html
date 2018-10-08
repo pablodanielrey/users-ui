@@ -1,0 +1,14 @@
+
+<div *ngIf='esErrorDeUsuario()'>
+  Error de usuario o clave.
+  <button (click)='login()'>reintentar</button>
+</div>
+
+<div *ngIf="!esErrorDeUsuario()">
+  <div>
+    {{error}}
+  </div>
+  <div>
+      {{descripcion}}
+  </div>
+</div>

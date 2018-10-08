@@ -19,6 +19,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SistemaComponent } from './sistema/sistema.component';
 import { MyMaterialModule } from './material.module';
 import { DialogoModificarFotoComponent } from './dialogo-modificar-foto/dialogo-modificar-foto.component';
+
+import { ErrorComponent } from './error/error.component';
+import { Oauth2Service } from './oauth2/oauth2.service';
 import { Oauth2Component } from './oauth2/oauth2.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from './users.service';
@@ -34,9 +37,11 @@ import { IngresarClaveComponent } from './sistema/cambiarclave/ingresar-clave/in
 import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificada/clave-modificada.component';
 import { DisableCopyPasteDirective } from './directives/disable-copy-paste.directive';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    ErrorComponent,
     Oauth2Component,
     LoaderComponent,
     FooterComponent,
@@ -73,6 +78,7 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
   entryComponents: [DialogoModificarFotoComponent],
   providers: [
     UsersService,
+    Oauth2Service,
     OidpGuard
   ],
   bootstrap: [AppComponent]
