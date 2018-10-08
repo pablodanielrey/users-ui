@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { Router, ActivatedRoute } from '@angular/router';
-=======
-import { ActivatedRoute } from '@angular/router';
->>>>>>> 9159cacf3fea2a1ed095d178b494504f086ae8bd
 
 
 @Component({
@@ -16,11 +12,7 @@ export class ErrorComponent implements OnInit {
   error = '';
   descripcion = '';
 
-<<<<<<< HEAD
   constructor(private router: Router, private route: ActivatedRoute) { }
-=======
-  constructor(private route: ActivatedRoute) { }
->>>>>>> 9159cacf3fea2a1ed095d178b494504f086ae8bd
 
   ngOnInit() {
     this.route.paramMap.subscribe(p => {
@@ -31,7 +23,6 @@ export class ErrorComponent implements OnInit {
         this.descripcion = p.get('error_description');
       }
     });
-<<<<<<< HEAD
  
   }
 
@@ -43,8 +34,4 @@ export class ErrorComponent implements OnInit {
       this.router.navigate(['/oauth2']);
     }
 
-=======
-  }
-
->>>>>>> 9159cacf3fea2a1ed095d178b494504f086ae8bd
 }
