@@ -10,7 +10,7 @@
     <div class="contenidoPantalla">
         <div class="perfil">
             <div class="contenedorImgPerfil">
-                <img class="imgPerfil" src="/assets/img/icono_usuario.jpg" *ngIf="!foto">
+                <img class="imgPerfil" src="https://api.econo.unlp.edu.ar/avatar/v1.0/avatar/4t43t34t34t34">
                 <img class="imgPerfil" [src]="foto" *ngIf="foto">
                 <!-- <button mat-button class="btnCambiarImagen">Cambiar Imágen</button> -->
                 <button mat-mini-fab class="btnBuscarImagen" matTooltip="Cambiar Imágen" (click)="cambiarFoto()"><mat-icon >add_a_photo</mat-icon></button>

@@ -4,7 +4,7 @@ import { forkJoin } from 'rxjs';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { UsersService } from '../users.service'
-import { OAuthService } from 'angular-oauth2-oidc'
+import { Oauth2Service } from '../oauth2/oauth2.service';
 import { Usuario, Mail, Telefono } from '../entities/usuario'
 import { Router } from '@angular/router';
 
@@ -18,7 +18,6 @@ import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractCon
 
 export class PantallaPrincipalComponent implements OnInit {
 
-  info: any;
   foto: any;
   procesando: boolean = true;
   procesandoCorreo: boolean = true;
@@ -47,7 +46,7 @@ export class PantallaPrincipalComponent implements OnInit {
               private fb: FormBuilder, 
               private router: Router,
               private service: UsersService,
-              private oauthService: OAuthService) { }
+              private oauthService: Oauth2Service) { }
 
   ngOnInit() {
     this.formulario = this.fb.group({
@@ -65,8 +64,8 @@ export class PantallaPrincipalComponent implements OnInit {
       nacimiento: this.nacimiento
     });
     
-    this.info = this.oauthService.getIdentityClaims();
-    this.userId = this.info.sub;
+    //this.info = this.oauthService.getIdentityClaims();
+    this.userId = this.oauthService.getId();
     this.subscriptions.push(
       forkJoin(
         this.service.obtenerUsuario(this.userId),

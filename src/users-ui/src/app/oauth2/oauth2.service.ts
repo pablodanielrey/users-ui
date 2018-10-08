@@ -88,4 +88,26 @@ export class Oauth2Service {
   logout() {
     this.oauthService.logOut(true);
   }
+
+  getId() {
+    let c = this.oauthService.getIdentityClaims();
+    return c['sub'];
+  }
+
+  getPrimaryEmail() {
+    let c = this.oauthService.getIdentityClaims();
+    if (c['email_verified']) {
+      return c['email'];
+    } else {
+      return null;
+    }
+    
+  }
+
+  getNames() {
+    return {
+      
+    };
+  }
+
 }
