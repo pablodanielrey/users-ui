@@ -71,7 +71,7 @@ export class Mail {
 
 export class Telefono {
   id: string = null;
-  nro: string;
+  numero: string;
   tipo: string;
   static readonly tipoFijo = 'fijo';
   static readonly tipoMovil = 'movil';

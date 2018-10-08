@@ -34,7 +34,7 @@ export class UsersService {
           direccion:null,        
           nombre:"Emanuel",
           pais:null,
-          sexo:"masculino",
+          genero:"masculino",
           telefonoFijo:"448484",
           telefonoMovil:""
      * }

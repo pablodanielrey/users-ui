@@ -129,10 +129,10 @@ export class PantallaPrincipalComponent implements OnInit {
   _parsearTelefonos(telefonos:Array<Telefono>): void {
     telefonos.forEach(t => {
       if (t.tipo == Telefono.tipoFijo) {
-        this.telefonoFijo.setValue(t.nro);
+        this.telefonoFijo.setValue(t.numero);
       } 
       if (t.tipo == Telefono.tipoMovil) {
-        this.telefonoMovil.setValue(t.nro);
+        this.telefonoMovil.setValue(t.numero);
       }
       
     });
