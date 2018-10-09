@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { from, Subscription, Observable } from 'rxjs';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { from, Subscription, Observable, of } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 import { AuthConfig, OAuthService, NullValidationHandler, JwksValidationHandler, OAuthEvent, OAuthErrorEvent, OAuthInfoEvent } from 'angular-oauth2-oidc';
@@ -12,8 +13,8 @@ export const authConfig: AuthConfig = {
   logoutUrl: environment.logoutUrl,
   oidc: true,
   requireHttps: false,
-  clientId: 'users-ui',
-  dummyClientSecret: 'users-ui',
+  clientId: environment.client_id,
+  dummyClientSecret: 'algosecreto',
   scope: 'openid profile email',
   sessionChecksEnabled: true,
   showDebugInformation: true
@@ -27,7 +28,8 @@ export class Oauth2Service {
   error: boolean = false;
   error_description: string = null;
 
-  constructor(private oauthService: OAuthService) { 
+  constructor(@Inject(DOCUMENT) private document: any,
+              private oauthService: OAuthService) { 
     this.oauthService.configure(authConfig);
     this.oauthService.tokenValidationHandler = new NullValidationHandler();
     
@@ -85,8 +87,8 @@ export class Oauth2Service {
     return this.oauthService.hasValidAccessToken();
   }
 
-  logout() {
-    this.oauthService.logOut(true);
+  logout(redirect=true) {
+    this.oauthService.logOut(!redirect);
   }
 
   getId() {
@@ -108,6 +110,14 @@ export class Oauth2Service {
     return {
       
     };
+  }
+
+  getIdToken(): string {
+    return this.oauthService.getIdToken();
+  }
+
+  getAppId(): string {
+    return environment.client_id;
   }
 
 }

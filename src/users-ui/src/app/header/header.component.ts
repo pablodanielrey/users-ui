@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
-import { OAuthService } from 'angular-oauth2-oidc';
+import { Oauth2Service } from '../oauth2/oauth2.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +10,14 @@ import { OAuthService } from 'angular-oauth2-oidc';
 })
 export class HeaderComponent implements OnInit {
 
-  info: any;
-
-  constructor(private router: Router, private oauthService: OAuthService) { }
+  constructor(private router: Router, private oauthService: Oauth2Service) { }
 
   ngOnInit() {
-    this.info = this.oauthService.getIdentityClaims();
+
   }
 
   salir():void {
-    this.oauthService.logOut();
+    this.oauthService.logout();
   }
 
   cambiar_clave() {

@@ -57,7 +57,7 @@ export class Oauth2Component implements OnInit, OnDestroy {
           this.router.navigate(['/sistema/inicial']);
         }
       }
+
     });
   }
-
 }
