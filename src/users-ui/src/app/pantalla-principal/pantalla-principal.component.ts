@@ -98,14 +98,7 @@ export class PantallaPrincipalComponent implements OnInit {
       }
     ));
 
-    this.subscriptions.push(this.service.obtenerAvatar(this.userId).subscribe(
-      data => {
-        this.foto = data;
-      },
-      err => {
-        console.log(err);
-      }
-    ));
+    this.foto = this.service.obtenerAvatar(this.userId);
   }
 
   ngOnDestroy() {
