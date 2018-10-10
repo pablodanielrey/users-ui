@@ -6,8 +6,7 @@ export const environment = {
   production: false,
   usersApiUrl: 'http://localhost:10102/users/api/v1.0',
   loginApiUrl: 'https://api.econo.unlp.edu.ar/login/api/v1.0',
-  oidp_issuer: 'https://oidc.econo.unlp.edu.ar/',
-  logoutUrl: 'https://login.econo.unlp.edu.ar/logout/{{id_token}}/{{client_id}}',
+  oidp_issuer: 'https://oidc.econo.unlp.edu.ar/',  
   avatarApiUrl: 'https://api.econo.unlp.edu.ar/avatar/api/v1.0',
   client_id: 'users-ui',
   version: '0.0.1a'  
