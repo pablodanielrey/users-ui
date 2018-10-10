@@ -7,7 +7,7 @@ import {ImageCropperModule} from 'ng2-img-cropper/index';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
-import { OAuthModule } from 'angular-oauth2-oidc';
+import { OAuthModule, OAuthStorage } from 'angular-oauth2-oidc';
 import { OidpGuard } from './oauth2/oidp.guard';
 
 import { AppComponent } from './app.component';
@@ -79,7 +79,8 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
   providers: [
     UsersService,
     Oauth2Service,
-    OidpGuard
+    OidpGuard,
+    { provide: OAuthStorage, useValue: localStorage }
   ],
   bootstrap: [AppComponent]
 })
