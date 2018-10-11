@@ -20,11 +20,11 @@ export class HeaderComponent implements OnInit {
     this.oauthService.logout().subscribe(
       r => {
         console.log(r);
-        this.router.navigate(['/']);
+        this.router.navigate(['/loader']);
       },
       e => {
         console.log(e);
-        this.router.navigate(['/']);
+        this.router.navigate(['/loader']);
       }
     );
   }
