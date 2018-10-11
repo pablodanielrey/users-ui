@@ -5,5 +5,5 @@ export const environment = {
   avatarApiUrl: 'https://api.econo.unlp.edu.ar/avatar/api/v1.0',
   oidp_issuer: 'https://oidc.econo.unlp.edu.ar/',
   client_id: 'users-ui',
-  version: '0.0.1a'
+  version: '1.0.0a'
 };
