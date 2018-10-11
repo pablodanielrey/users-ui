@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 
 import { Oauth2Service } from '../oauth2/oauth2.service';
+import { UpdateService } from '../update.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,9 @@ import { Oauth2Service } from '../oauth2/oauth2.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private oauthService: Oauth2Service) { }
+  constructor(private router: Router, 
+              private oauthService: Oauth2Service,
+              private update: UpdateService) { }
 
   ngOnInit() {
 
@@ -31,6 +34,10 @@ export class HeaderComponent implements OnInit {
 
   cambiar_clave() {
     this.router.navigate(['/sistema/cambiar_clave']);
+  }
+
+  chequear_actualizaciones() {
+    this.update.checkForUpdate();
   }
 
 }
