@@ -17,7 +17,16 @@ export class HeaderComponent implements OnInit {
   }
 
   salir():void {
-    this.oauthService.logout();
+    this.oauthService.logout().subscribe(
+      r => {
+        console.log(r);
+        this.router.navigate(['/']);
+      },
+      e => {
+        console.log(e);
+        this.router.navigate(['/']);
+      }
+    );
   }
 
   cambiar_clave() {
