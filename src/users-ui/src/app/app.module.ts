@@ -36,6 +36,8 @@ import { CorreoConfirmadoComponent } from './sistema/agregarcorreo/correo-confir
 import { IngresarClaveComponent } from './sistema/cambiarclave/ingresar-clave/ingresar-clave.component';
 import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificada/clave-modificada.component';
 import { DisableCopyPasteDirective } from './directives/disable-copy-paste.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -73,7 +75,8 @@ import { DisableCopyPasteDirective } from './directives/disable-copy-paste.direc
         allowedUrls: ['http'],
         sendAccessToken: true
       }
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   entryComponents: [DialogoModificarFotoComponent],
   providers: [
