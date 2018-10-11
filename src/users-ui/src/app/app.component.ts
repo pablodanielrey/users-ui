@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UpdateService } from './update.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
 
-  constructor(private router: Router) {
-   
+  constructor(private router: Router, private update: UpdateService) {
+    Notification.requestPermission();   
   }
 }
