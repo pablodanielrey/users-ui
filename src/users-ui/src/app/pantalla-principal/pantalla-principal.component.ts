@@ -86,7 +86,7 @@ export class PantallaPrincipalComponent implements OnInit {
         this.pais.setValue(usuario.pais);
         this._procesarCorreos(correos);
         this._parsearTelefonos(usuario.telefonos);   
-        let date = ('nacimiento' in usuario && usuario.nacimiento) ? new Date(usuario.nacimiento): new Date();
+        let date = ('nacimiento' in usuario && usuario.nacimiento) ? new Date(usuario.nacimiento): null;
         this.nacimiento.setValue(date);
       },
       err => {
