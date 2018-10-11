@@ -50,9 +50,10 @@ export class UsersService {
     return `${AVATAR_API_URL}/avatar/${hash}`;
   }
 
-  actualizarAvatar(uid: string, avatar: string): Observable<string> {
-    this.foto = avatar;
-    return of(this.foto);
+  actualizarAvatar(uid: string, avatar: object): Observable<string> {
+    let hash = Md5.hashStr(uid);
+    let apiUrl = `${AVATAR_API_URL}/avatar/${hash}`
+    return this.http.post<any>(apiUrl, avatar);
   }
 
   obtenerCorreos(uid:string): Observable<Array<Mail>> {

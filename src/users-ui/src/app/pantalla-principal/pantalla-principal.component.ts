@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo-modificar-foto.component';
+import { DialogoModificarFotoComponent } from '../dialogo-modificar-foto/dialogo-modificar-foto.component';
 import { forkJoin } from 'rxjs';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
@@ -40,7 +40,7 @@ export class PantallaPrincipalComponent implements OnInit {
 
   usuario: Usuario = null;  
   subscriptions: any[] = [];
-  //cambiarFotoDialogRef: MatDialogRef<DialogoModificarFotoComponent>;
+  cambiarFotoDialogRef: MatDialogRef<DialogoModificarFotoComponent>;
 
   constructor(public dialog: MatDialog,
               private fb: FormBuilder, 
@@ -169,15 +169,19 @@ export class PantallaPrincipalComponent implements OnInit {
 
 
   cambiarFoto(): void {
-/*
     this.cambiarFotoDialogRef = this.dialog.open(DialogoModificarFotoComponent);
     this.cambiarFotoDialogRef.afterClosed().subscribe(result => {      
       if (result) {
 
         this.procesando = true;
-        this.subscriptions.push(this.service.actualizarAvatar(this.userId, result).subscribe(
+        let data = {}
+        let array = result.split(',');
+        data['b64'] = array[1];
+        data['content_type'] = array[0].split(':')[1].split(';')[0];
+        this.subscriptions.push(this.service.actualizarAvatar(this.userId, data).subscribe(
           f => {
-            this.foto = f;
+            // this.foto = f;
+            console.log(f);
             this.procesando = false;
           },
           err => {
@@ -187,7 +191,6 @@ export class PantallaPrincipalComponent implements OnInit {
         ))        
       }
     });
-*/
   }
 
   guardar(): void {
