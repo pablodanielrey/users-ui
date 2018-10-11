@@ -13,6 +13,7 @@ import { UpdateService } from './update.service';
 export class AppComponent {
 
   constructor(private router: Router, private update: UpdateService) {
-    Notification.requestPermission();   
+    Notification.requestPermission().then(() => { new Notification('Notificaciones Activadas')});
+    this.update.checkForUpdate();
   }
 }

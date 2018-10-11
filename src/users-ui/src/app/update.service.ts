@@ -7,9 +7,15 @@ import { SwUpdate, SwPush } from '@angular/service-worker';
 export class UpdateService {
 
   constructor(private update: SwUpdate, private push: SwPush) { 
-    update.available.subscribe(event => {
+    this.update.available.subscribe(event => {
       new Notification('Actualizando Aplicación');
-      update.activateUpdate().then(() => document.location.reload());
+      this.update.activateUpdate().then(() => document.location.reload());
+    });
+  }
+
+  checkForUpdate() {
+    this.update.checkForUpdate().then(() => {
+      new Notification('Chequeando por actualizaciones');
     });
   }
 
