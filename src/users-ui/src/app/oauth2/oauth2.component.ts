@@ -54,7 +54,7 @@ export class Oauth2Component implements OnInit, OnDestroy {
         if (!this.oauthService.hasValidToken()) {
           this.oauthService.login();
         } else {
-          this.router.navigate(['/sistema/inicial']);
+          this.router.navigate(['/sistema/chequeos']);
         }
       }
 
