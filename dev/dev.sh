@@ -1,3 +1,3 @@
 #!/bin/bash
-echo "abrir el explorador en localhost:10105"
-docker run --rm -ti -v $(pwd)/src:/src -p 10105:4200 users-ui /bin/sh
+echo "corriendo en el puerto 10105"
+docker run --rm -ti --name users-ui -v $(pwd)/src:/src -p 10105:4200 desarrollo-ui
