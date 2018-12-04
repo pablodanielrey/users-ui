@@ -38,6 +38,7 @@ import { ClaveModificadaComponent } from './sistema/cambiarclave/clave-modificad
 import { DisableCopyPasteDirective } from './directives/disable-copy-paste.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DatosPersonalesComponent } from './insercion-laboral/datos-personales/datos-personales.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { environment } from '../environments/environment';
     CorreoConfirmadoComponent,
     IngresarClaveComponent,
     ClaveModificadaComponent,
-    DisableCopyPasteDirective
+    DisableCopyPasteDirective,
+    DatosPersonalesComponent
   ],
   imports: [
     BrowserModule,

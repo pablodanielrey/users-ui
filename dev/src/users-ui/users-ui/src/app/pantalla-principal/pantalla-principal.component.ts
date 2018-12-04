@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 import { FormBuilder, FormControl, Validators, FormGroup, FormArray, AbstractControl } from '@angular/forms'; 
 
+
 @Component({
   selector: 'app-pantalla-principal',
   templateUrl: './pantalla-principal.component.html',
