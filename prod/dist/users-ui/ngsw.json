@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.e0a663086f89340b8ae8.js",
+        "/polyfills.2f4a59095805af02bd79.js",
+        "/runtime.a66f828dca56eeb90e02.js",
+        "/styles.fdcb3bf0323ec6b3d2ac.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/fondo.jpg",
+        "/assets/img/icono_usuario.jpg",
+        "/assets/img/icono_usuario2.jpg",
+        "/assets/img/logo_fce.png",
+        "/assets/img/logo_unlp.png",
+        "/assets/img/logo_usuarios.png",
+        "/assets/img/walter.jpg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "patterns": [
+        "https:\\/\\/api\\.econo\\.unlp\\.edu\\.ar\\/.*"
+      ],
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": 259200000,
+      "timeoutMs": 60000,
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/icons/icon-128x128.png": "492335b78d4148f9fcde3aacaaf13cd67a087a94",
+    "/assets/icons/icon-144x144.png": "50c30c80f5e6384afd91fc514d370cef1d5401d6",
+    "/assets/icons/icon-152x152.png": "368b6d0e194f806d313d979374fd29246e7362da",
+    "/assets/icons/icon-192x192.png": "a02656265df9b94b98ba34a344eaedd4e0ee4062",
+    "/assets/icons/icon-384x384.png": "a47dd7fde8b16d8d3cc777086deda20d977fad99",
+    "/assets/icons/icon-512x512.png": "5f11e82a041c1b87db05c66d5cc4229f2c1cea20",
+    "/assets/icons/icon-72x72.png": "d7d1f4cbe1bdd52d8f1419ff44746d5068a426df",
+    "/assets/icons/icon-96x96.png": "587eb9f61f0a8fb84db64be67cd2e872142d9232",
+    "/assets/img/fondo.jpg": "f175f2aa3ebdfd020f434033a53fb1bc8fdff74c",
+    "/assets/img/icono_usuario.jpg": "304558baa3f152fb29fba028d6be850adb36d709",
+    "/assets/img/icono_usuario2.jpg": "4ad12510fb87a1f083e0d4469fd4d970c5185f26",
+    "/assets/img/logo_fce.png": "e30e5f264e1cf0b9e5ea63f0a0628c25ed97d082",
+    "/assets/img/logo_unlp.png": "b58125d67e2113bc7f6e9063eccc135f4ef6ad4f",
+    "/assets/img/logo_usuarios.png": "67ca9da55b4bafb09faabe3d03263698e663b99f",
+    "/assets/img/walter.jpg": "42f4606ea362282c349c66cb096c7269d7c10286",
+    "/favicon.ico": "7a22c7cc7f59ac6962f7c45d1f9b35a57135a923",
+    "/index.html": "bacf9fa27ea47ea23da2de522f79182235f9fa43",
+    "/main.e0a663086f89340b8ae8.js": "4d2d80d5e85b1d73bd4810cad5d17614eea59d3c",
+    "/polyfills.2f4a59095805af02bd79.js": "8949bb1b1e302dda246f6ed9c2da703270360b1f",
+    "/runtime.a66f828dca56eeb90e02.js": "078e320cc6fdaf355836c3b1c52b059cdd33fc7e",
+    "/styles.fdcb3bf0323ec6b3d2ac.css": "9f035e32a34ffa6b21761c6f815321eb47c09117"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
