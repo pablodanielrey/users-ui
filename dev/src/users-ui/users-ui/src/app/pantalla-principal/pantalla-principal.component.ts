@@ -73,7 +73,7 @@ export class PantallaPrincipalComponent implements OnInit {
         this.service.obtenerCorreos(this.userId)
       ).subscribe(
       datos => {
-        let usuario = datos[0];
+        let usuario = datos[0][0];
         let correos = datos[1];
         console.log(usuario);
         this.usuario = usuario;
