@@ -44,6 +44,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+@angular/common@6.1.7
+MIT
+MIT
+
 rxjs@6.3.2
 Apache-2.0
 Apache License
@@ -247,6 +251,10 @@ Apache License
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
+
+jsrsasign@8.0.12
+MIT
+MIT
 
 ts-md5@1.2.4
 MIT
@@ -455,11 +463,3 @@ Apache License
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-
-@angular/common@6.1.7
-MIT
-MIT
-
-jsrsasign@8.0.12
-MIT
-MIT
